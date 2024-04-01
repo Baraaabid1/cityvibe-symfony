@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Reclamations</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>List of Reclamations</h2>
+    <table>
+        <tr>
+            <th>User ID</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Action</th>
+
+        </tr>
+        {% for reclamation in reclamations %}
+        <tr>
+            <td>{{ reclamation.idu }}</td>
+            <td>{{ reclamation.titrer }}</td>
+            <td>{{ reclamation.contenu }}</td>
+            <td>{{ reclamation.typer }}</td>
+            <td>{{ reclamation.temp|date('Y-m-d H:i:s') }}</td>
+            <td>
+                 <a href="{{ path('app_edit_reclamation', {'id': reclamation.idr}) }}">Edit</a> |
+
+                 <a href="{{ path('app_delete_reclamation', {'id': reclamation.idr}) }}" >Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

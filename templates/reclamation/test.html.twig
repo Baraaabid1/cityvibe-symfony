@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}cityvive{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs"style="margin-bottom: 20px;">
+        <div class="container">
+          <ol>
+            <li><a href="{{ path('app_main') }}">Home</a></li>
+            <li class="current">Mes Reclamations</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Events Section -->
+    <section id="events" class="events section">
+
+  <div class="container" data-aos="fade-up">
+
+    <div class="row g-4">
+      {% for reclamation in reclamations %}
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><a href="">{{ reclamation.titrer }}</a></h5>
+            <p class="fst-italic text-center">{{ reclamation.typer }}</p>
+            <p class="fst-italic text-center">{{ reclamation.temp|date('l, F jS Y \\a\\t g:ia') }}</p>
+            <p class="card-text">{{ reclamation.contenu }}</p>
+            <div class="text-center mt-3">
+       <a href="{{ path('app_delete_reclamation', {'id': reclamation.idr}) }}" class="btn btn-primary mx-2">Supprimer</a>
+        <a href="{{ path('app_edit_reclamation', {'id': reclamation.idr}) }}" class="btn btn-primary mx-2">Modifier</a>
+           </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</section>
+      </div>
+
+    </section><!-- /Events Section -->
+
+  </main>
+
+
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+<script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+<script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+<!-- Main JS File -->
+<script src="{{ asset('assets/js/main.js') }}"></script>
+</body>
+</html>
+{% endblock %}
