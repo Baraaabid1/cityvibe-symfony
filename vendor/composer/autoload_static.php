@@ -592,10 +592,12 @@ class ComposerStaticInit8cb1edc192ce3ebf502dcaf53ac1cc21
     );
 
     public static $classMap = array (
+        'App\\Controller\\MainController' => __DIR__ . '/../..' . '/src/Controller/MainController.php',
         'App\\Controller\\ReclamationController' => __DIR__ . '/../..' . '/src/Controller/ReclamationController.php',
         'App\\Entity\\Reclamation' => __DIR__ . '/../..' . '/src/Entity/Reclamation.php',
         'App\\Entity\\Reponser' => __DIR__ . '/../..' . '/src/Entity/Reponser.php',
         'App\\Form\\AjoutReclamationType' => __DIR__ . '/../..' . '/src/Form/AjoutReclamationType.php',
+        'App\\Form\\AjoutReponseRType' => __DIR__ . '/../..' . '/src/Form/AjoutReponseRType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
         'App\\Repository\\ReclamationRepository' => __DIR__ . '/../..' . '/src/Repository/ReclamationRepository.php',
         'App\\Repository\\ReponserRepository' => __DIR__ . '/../..' . '/src/Repository/ReponserRepository.php',

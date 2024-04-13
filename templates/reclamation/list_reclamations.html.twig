@@ -1,48 +1,152 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>List of Reclamations</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
-    <h2>List of Reclamations</h2>
-    <table>
-        <tr>
-            <th>User ID</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Type</th>
-            <th>Date</th>
-            <th>Action</th>
+{% extends 'baseA.html.twig' %}
+{% block body %}
+  <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="#pablo">Table List</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <form>
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                  <i class="now-ui-icons media-2_sound-wave"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Stats</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="now-ui-icons location_world"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Some Actions</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                  <i class="now-ui-icons users_single-02"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Account</span>
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="panel-header panel-header-sm">
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title"> Liste des Reclamations </h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <style>
+  .table td, .table th {
+    white-space: normal !important;
+    word-wrap: break-word;
+    max-width: 120px; /* Adjust the width as needed */
+  }
+</style>
 
-        </tr>
-        {% for reclamation in reclamations %}
+<table class="table">
+  <thead class="text-primary">
+    <th>
+      Titre
+    </th>
+    <th>
+      Date
+    </th>
+    <th>
+      Type 
+    </th>
+    <th>
+      A propos
+    </th>
+    <th>
+      Contenu
+    </th>
+    <th>
+      Action
+    </th>
+  </thead>
+ <tbody>
+    {% for reclamation in reclamations %}
         <tr>
-            <td>{{ reclamation.idu }}</td>
             <td>{{ reclamation.titrer }}</td>
-            <td>{{ reclamation.contenu }}</td>
-            <td>{{ reclamation.typer }}</td>
             <td>{{ reclamation.temp|date('Y-m-d H:i:s') }}</td>
+            <td>{{ reclamation.typer }}</td>
+            <td>{{ reclamation.Apropo }}</td>
+            <td>{{ reclamation.contenu }}</td>
             <td>
-                 <a href="{{ path('app_edit_reclamation', {'id': reclamation.idr}) }}">Edit</a> |
-
-                 <a href="{{ path('app_delete_reclamation', {'id': reclamation.idr}) }}" >Delete</a>
+                <a href="{{ path('app_delete_reclamation_admin', {'id': reclamation.idr}) }}">Supprimer</a>
+                <a href="{{ path('app_mainAdmin_reponse', {'id': reclamation.idr}) }}">Repondre</a>
             </td>
         </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+        {% if app.request.query.get('id') == reclamation.idr %}
+            <tr>
+                <td colspan="6">
+                    {% block reponseAdmin %}
+                    {% endblock %}
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+</tbody>
+</table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+           <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+
+
+
+{% endblock %}

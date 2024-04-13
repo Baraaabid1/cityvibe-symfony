@@ -30,6 +30,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'javascripts' => [$this, 'block_javascripts'],
+            'navbar' => [$this, 'block_navbar'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -65,10 +66,15 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
         // line 35
         echo "    </head>
     <body>
-        ";
+            ";
         // line 37
+        $this->displayBlock('navbar', $context, $blocks);
+        // line 106
+        echo "
+        ";
+        // line 107
         $this->displayBlock('body', $context, $blocks);
-        // line 38
+        // line 108
         echo "    </body>
 </html>
 ";
@@ -195,6 +201,96 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
     }
 
     // line 37
+    public function block_navbar($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
+
+        echo "<div class=\"sidebar\" data-color=\"orange\">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color=\"blue | green | orange | red | yellow\"
+    -->
+      <div class=\"logo\">
+        <a href=\"http://www.creative-tim.com\" class=\"simple-text logo-mini\">
+          CT
+        </a>
+        <a href=\"http://www.creative-tim.com\" class=\"simple-text logo-normal\">
+          Creative Tim
+        </a>
+      </div>
+      <div class=\"sidebar-wrapper\" id=\"sidebar-wrapper\">
+        <ul class=\"nav\">
+          <li class=\"active \">
+            <a href=\"./dashboard.html\">
+              <i class=\"now-ui-icons design_app\"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a  href=\"";
+        // line 58
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_list_reclamations");
+        echo "\">
+           
+              <i class=\"now-ui-icons education_atom\"></i>
+              <p>Reclamations</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./map.html\">
+              <i class=\"now-ui-icons location_map-big\"></i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./notifications.html\">
+              <i class=\"now-ui-icons ui-1_bell-53\"></i>
+              <p>Notifications</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./user.html\">
+              <i class=\"now-ui-icons users_single-02\"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./tables.html\">
+              <i class=\"now-ui-icons design_bullet-list-67\"></i>
+              <p>Table List</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./typography.html\">
+              <i class=\"now-ui-icons text_caps-small\"></i>
+              <p>Typography</p>
+            </a>
+          </li>
+          <li class=\"active-pro\">
+            <a href=\"./upgrade.html\">
+              <i class=\"now-ui-icons arrows-1_cloud-download-93\"></i>
+              <p>Upgrade to PRO</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class=\"main-panel\" id=\"main-panel\">
+      <!-- Navbar -->
+     ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 107
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -225,7 +321,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
      */
     public function getDebugInfo()
     {
-        return array (  198 => 37,  186 => 33,  182 => 32,  177 => 30,  172 => 28,  165 => 24,  161 => 23,  157 => 22,  153 => 21,  150 => 20,  140 => 19,  128 => 16,  123 => 14,  119 => 13,  113 => 9,  103 => 8,  84 => 5,  72 => 38,  70 => 37,  66 => 35,  64 => 19,  61 => 18,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  294 => 107,  236 => 58,  204 => 37,  192 => 33,  188 => 32,  183 => 30,  178 => 28,  171 => 24,  167 => 23,  163 => 22,  159 => 21,  156 => 20,  146 => 19,  134 => 16,  129 => 14,  125 => 13,  119 => 9,  109 => 8,  90 => 5,  78 => 108,  76 => 107,  73 => 106,  71 => 37,  67 => 35,  65 => 19,  62 => 18,  59 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -266,6 +362,76 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
         {% endblock %}
     </head>
     <body>
+            {% block navbar %}<div class=\"sidebar\" data-color=\"orange\">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color=\"blue | green | orange | red | yellow\"
+    -->
+      <div class=\"logo\">
+        <a href=\"http://www.creative-tim.com\" class=\"simple-text logo-mini\">
+          CT
+        </a>
+        <a href=\"http://www.creative-tim.com\" class=\"simple-text logo-normal\">
+          Creative Tim
+        </a>
+      </div>
+      <div class=\"sidebar-wrapper\" id=\"sidebar-wrapper\">
+        <ul class=\"nav\">
+          <li class=\"active \">
+            <a href=\"./dashboard.html\">
+              <i class=\"now-ui-icons design_app\"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a  href=\"{{ path('app_list_reclamations') }}\">
+           
+              <i class=\"now-ui-icons education_atom\"></i>
+              <p>Reclamations</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./map.html\">
+              <i class=\"now-ui-icons location_map-big\"></i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./notifications.html\">
+              <i class=\"now-ui-icons ui-1_bell-53\"></i>
+              <p>Notifications</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./user.html\">
+              <i class=\"now-ui-icons users_single-02\"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./tables.html\">
+              <i class=\"now-ui-icons design_bullet-list-67\"></i>
+              <p>Table List</p>
+            </a>
+          </li>
+          <li>
+            <a href=\"./typography.html\">
+              <i class=\"now-ui-icons text_caps-small\"></i>
+              <p>Typography</p>
+            </a>
+          </li>
+          <li class=\"active-pro\">
+            <a href=\"./upgrade.html\">
+              <i class=\"now-ui-icons arrows-1_cloud-download-93\"></i>
+              <p>Upgrade to PRO</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class=\"main-panel\" id=\"main-panel\">
+      <!-- Navbar -->
+     {% endblock %}
+
         {% block body %}{% endblock %}
     </body>
 </html>

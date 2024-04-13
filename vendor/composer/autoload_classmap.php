@@ -6,10 +6,12 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controller\\MainController' => $baseDir . '/src/Controller/MainController.php',
     'App\\Controller\\ReclamationController' => $baseDir . '/src/Controller/ReclamationController.php',
     'App\\Entity\\Reclamation' => $baseDir . '/src/Entity/Reclamation.php',
     'App\\Entity\\Reponser' => $baseDir . '/src/Entity/Reponser.php',
     'App\\Form\\AjoutReclamationType' => $baseDir . '/src/Form/AjoutReclamationType.php',
+    'App\\Form\\AjoutReponseRType' => $baseDir . '/src/Form/AjoutReponseRType.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
     'App\\Repository\\ReclamationRepository' => $baseDir . '/src/Repository/ReclamationRepository.php',
     'App\\Repository\\ReponserRepository' => $baseDir . '/src/Repository/ReponserRepository.php',

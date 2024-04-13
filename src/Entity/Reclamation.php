@@ -13,8 +13,8 @@ class Reclamation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private  ?int $idr = null;
+    #[ORM\Column(name: 'idR', type: 'integer')]
+    private ?int $idR = null;
 
    
     #[ORM\Column]
@@ -48,7 +48,7 @@ class Reclamation
 
     public function getIdr(): ?int
     {
-        return $this->idr;
+        return $this->idR;
     }
 
     public function getIdu(): ?int

@@ -5,7 +5,6 @@ namespace App\Repository;
 use App\Entity\Reponser;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
 /**
  * @extends ServiceEntityRepository<Reponser>
  *

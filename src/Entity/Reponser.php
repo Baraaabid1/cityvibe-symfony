@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\DBAL\Types\Types;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 use App\Repository\ReponserRepository;
 
@@ -23,13 +25,14 @@ class Reponser
 
    
     #[ORM\Column(length: 65535)]
+    #[Assert\NotBlank(message:"champ obligatoire")]
     private ?string $textr = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTime $dateRepr;
 
-    
-    #[ORM\ManyToOne(targetEntity: Reclamation::class, inversedBy: 'idr')]
+    #[ORM\ManyToOne(targetEntity: Reclamation::class, inversedBy: 'reponser')]
+    #[ORM\JoinColumn(name: "idR", referencedColumnName: "idR")]
     private ?Reclamation $idR;
 
     public function getIdrr(): ?int
