@@ -29,29 +29,30 @@
         </div>
       </div>
     </div>
-  <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card card-plain">
-                <div class="card-header">
-                    <h4 class="card-title">Repondre</h4>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                         <table class="table">
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card card-plain">
+                    <div class="card-header">
+                        <h4 class="card-title">Repondre</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
                             <tbody style="height: 50px; overflow-y: auto;">
-                                {% for reclamationResponse in reclamationResponses %}
-                                    <tr>
-                                        {% if reclamationResponse.idu == 1 %}
-                                            <td class="text-right">
-                                            {{ reclamationResponse.textr }}
-                                            </td>
-                                        {% else %}
-                                            <td class="text-left">{{ reclamationResponse.textr }}</td>
-                                        {% endif %}
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
+                      {% for reclamationResponse in reclamationResponses %}
+        <div class="chat_box_main">
+            <div class="chat_box_message {% if reclamationResponse.idu == 1 %}text-right{% else %}text-left{% endif %}">
+                {{ reclamationResponse.textr }}
+            </div>
+            <!-- Assuming `reclamationResponse.time2` holds the timestamp -->
+            <div class="time">
+                {{ reclamationResponse.dateRepr|date('M d Y H:i:s') }}
+            </div>
+        </div>
+    {% endfor %}
+</tbody>
+
                             <tfoot>
                                 <tr>
                                     <td colspan="2">

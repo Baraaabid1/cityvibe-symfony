@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* reclamation\ajoutReponseA.html.twig */
+/* reclamation/ajoutReponseA.html.twig */
 class __TwigTemplate_9698bbfc48e0cc58f87cb554495e08b3 extends Template
 {
     private $source;
@@ -39,12 +39,12 @@ class __TwigTemplate_9698bbfc48e0cc58f87cb554495e08b3 extends Template
     {
         $macros = $this->macros;
         $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "reclamation\\ajoutReponseA.html.twig"));
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "reclamation/ajoutReponseA.html.twig"));
 
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "reclamation\\ajoutReponseA.html.twig"));
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "reclamation/ajoutReponseA.html.twig"));
 
-        $this->parent = $this->loadTemplate("baseA.html.twig", "reclamation\\ajoutReponseA.html.twig", 2);
+        $this->parent = $this->loadTemplate("baseA.html.twig", "reclamation/ajoutReponseA.html.twig", 2);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -107,66 +107,68 @@ class __TwigTemplate_9698bbfc48e0cc58f87cb554495e08b3 extends Template
         </div>
       </div>
     </div>
-  <div class=\"container\">
-    <div class=\"row justify-content-center\">
-        <div class=\"col-md-8\">
-            <div class=\"card card-plain\">
-                <div class=\"card-header\">
-                    <h4 class=\"card-title\">Repondre</h4>
-                </div>
-                <div class=\"card-body\">
-                    <div class=\"table-responsive\">
-                         <table class=\"table\">
+<div class=\"container\">
+        <div class=\"row justify-content-center\">
+            <div class=\"col-md-8\">
+                <div class=\"card card-plain\">
+                    <div class=\"card-header\">
+                        <h4 class=\"card-title\">Repondre</h4>
+                    </div>
+                    <div class=\"card-body\">
+                        <div class=\"table-responsive\">
+                            <table class=\"table\">
                             <tbody style=\"height: 50px; overflow-y: auto;\">
-                                ";
+                      ";
         // line 43
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["reclamationResponses"]) || array_key_exists("reclamationResponses", $context) ? $context["reclamationResponses"] : (function () { throw new RuntimeError('Variable "reclamationResponses" does not exist.', 43, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["reclamationResponse"]) {
             // line 44
-            echo "                                    <tr>
-                                        ";
+            echo "        <div class=\"chat_box_main\">
+            <div class=\"chat_box_message ";
             // line 45
             if ((twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "idu", [], "any", false, false, false, 45) == 1)) {
-                // line 46
-                echo "                                            <td class=\"text-right\">
-                                            ";
-                // line 47
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "textr", [], "any", false, false, false, 47), "html", null, true);
-                echo "
-                                            </td>
-                                        ";
+                echo "text-right";
             } else {
-                // line 50
-                echo "                                            <td class=\"text-left\">";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "textr", [], "any", false, false, false, 50), "html", null, true);
-                echo "</td>
-                                        ";
+                echo "text-left";
             }
-            // line 52
-            echo "                                    </tr>
-                                ";
+            echo "\">
+                ";
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "textr", [], "any", false, false, false, 46), "html", null, true);
+            echo "
+            </div>
+            <!-- Assuming `reclamationResponse.time2` holds the timestamp -->
+            <div class=\"time\">
+                ";
+            // line 50
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "dateRepr", [], "any", false, false, false, 50), "M d Y H:i:s"), "html", null, true);
+            echo "
+            </div>
+        </div>
+    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamationResponse'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 54
-        echo "                            </tbody>
+        echo "</tbody>
+
                             <tfoot>
                                 <tr>
                                     <td colspan=\"2\">
                                       ";
-        // line 58
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 58, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate", "autocomplete" => "off"]]);
+        // line 59
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 59, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate", "autocomplete" => "off"]]);
         echo "
                                         <div class=\"form-group\">
                                             ";
-        // line 60
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 60, $this->source); })()), "textr", [], "any", false, false, false, 60), 'errors');
+        // line 61
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 61, $this->source); })()), "textr", [], "any", false, false, false, 61), 'errors');
         echo "
                                             ";
-        // line 61
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 61, $this->source); })()), "textr", [], "any", false, false, false, 61), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Reponde"]]);
+        // line 62
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 62, $this->source); })()), "textr", [], "any", false, false, false, 62), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Reponde"]]);
         echo "       
                                         </div>
                                     </td>
@@ -175,8 +177,8 @@ class __TwigTemplate_9698bbfc48e0cc58f87cb554495e08b3 extends Template
                                     </td>
                                 </tr>
                                 ";
-        // line 68
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 68, $this->source); })()), 'form_end');
+        // line 69
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 69, $this->source); })()), 'form_end');
         echo "
                             </tfoot>
                         </table>
@@ -221,7 +223,7 @@ class __TwigTemplate_9698bbfc48e0cc58f87cb554495e08b3 extends Template
      */
     public function getTemplateName()
     {
-        return "reclamation\\ajoutReponseA.html.twig";
+        return "reclamation/ajoutReponseA.html.twig";
     }
 
     /**
@@ -237,7 +239,7 @@ class __TwigTemplate_9698bbfc48e0cc58f87cb554495e08b3 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  179 => 68,  169 => 61,  165 => 60,  160 => 58,  154 => 54,  147 => 52,  141 => 50,  135 => 47,  132 => 46,  130 => 45,  127 => 44,  123 => 43,  104 => 27,  94 => 22,  87 => 18,  81 => 15,  68 => 4,  58 => 3,  35 => 2,);
+        return array (  181 => 69,  171 => 62,  167 => 61,  162 => 59,  155 => 54,  145 => 50,  138 => 46,  130 => 45,  127 => 44,  123 => 43,  104 => 27,  94 => 22,  87 => 18,  81 => 15,  68 => 4,  58 => 3,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -273,29 +275,30 @@ class __TwigTemplate_9698bbfc48e0cc58f87cb554495e08b3 extends Template
         </div>
       </div>
     </div>
-  <div class=\"container\">
-    <div class=\"row justify-content-center\">
-        <div class=\"col-md-8\">
-            <div class=\"card card-plain\">
-                <div class=\"card-header\">
-                    <h4 class=\"card-title\">Repondre</h4>
-                </div>
-                <div class=\"card-body\">
-                    <div class=\"table-responsive\">
-                         <table class=\"table\">
+<div class=\"container\">
+        <div class=\"row justify-content-center\">
+            <div class=\"col-md-8\">
+                <div class=\"card card-plain\">
+                    <div class=\"card-header\">
+                        <h4 class=\"card-title\">Repondre</h4>
+                    </div>
+                    <div class=\"card-body\">
+                        <div class=\"table-responsive\">
+                            <table class=\"table\">
                             <tbody style=\"height: 50px; overflow-y: auto;\">
-                                {% for reclamationResponse in reclamationResponses %}
-                                    <tr>
-                                        {% if reclamationResponse.idu == 1 %}
-                                            <td class=\"text-right\">
-                                            {{ reclamationResponse.textr }}
-                                            </td>
-                                        {% else %}
-                                            <td class=\"text-left\">{{ reclamationResponse.textr }}</td>
-                                        {% endif %}
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
+                      {% for reclamationResponse in reclamationResponses %}
+        <div class=\"chat_box_main\">
+            <div class=\"chat_box_message {% if reclamationResponse.idu == 1 %}text-right{% else %}text-left{% endif %}\">
+                {{ reclamationResponse.textr }}
+            </div>
+            <!-- Assuming `reclamationResponse.time2` holds the timestamp -->
+            <div class=\"time\">
+                {{ reclamationResponse.dateRepr|date('M d Y H:i:s') }}
+            </div>
+        </div>
+    {% endfor %}
+</tbody>
+
                             <tfoot>
                                 <tr>
                                     <td colspan=\"2\">
@@ -339,6 +342,6 @@ class __TwigTemplate_9698bbfc48e0cc58f87cb554495e08b3 extends Template
   <script src=\"../assets/demo/demo.js\"></script>
 
 
-    {% endblock %}", "reclamation\\ajoutReponseA.html.twig", "C:\\Users\\baraa\\OneDrive\\Desktop\\Workshops Symfony\\CRUD\\SymfonyPIDEV\\templates\\reclamation\\ajoutReponseA.html.twig");
+    {% endblock %}", "reclamation/ajoutReponseA.html.twig", "C:\\Users\\baraa\\OneDrive\\Desktop\\Workshops Symfony\\CRUD\\SymfonyPIDEV\\templates\\reclamation\\ajoutReponseA.html.twig");
     }
 }

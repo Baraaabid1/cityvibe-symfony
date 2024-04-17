@@ -84,10 +84,12 @@ return [[
 '[C]App%5CController%5CReclamationController%23indexRepnse' => 1,
 'App%5CController%5CReclamationController%23deleteReclamationAdmin' => 0,
 '[C]App%5CController%5CReclamationController%23deleteReclamationAdmin' => 1,
-'App%5CController%5CReclamationController%23indexReponseAdmin' => 0,
-'[C]App%5CController%5CReclamationController%23indexReponseAdmin' => 1,
 'App%5CController%5CReclamationController%23data' => 0,
 '[C]App%5CController%5CReclamationController%23data' => 1,
+'App%5CController%5CReclamationController%23testlistReclamations' => 0,
+'[C]App%5CController%5CReclamationController%23testlistReclamations' => 1,
+'App%5CController%5CReclamationController%23editReponse' => 0,
+'[C]App%5CController%5CReclamationController%23editReponse' => 1,
 'App%5CEntity%5CReclamation' => 0,
 '[C]App%5CEntity%5CReclamation' => 1,
 'App%5CEntity%5CReclamation%23getIdr' => 0,
@@ -724,6 +726,6 @@ return [[
 ], [
 
 0 => [],
-1 => 1712092017,
+1 => 1713381834,
 
 ]];

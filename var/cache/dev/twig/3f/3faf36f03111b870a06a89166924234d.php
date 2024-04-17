@@ -58,23 +58,23 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
         // line 8
         echo "        ";
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 18
+        // line 26
         echo "
         ";
-        // line 19
+        // line 27
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 35
+        // line 43
         echo "    </head>
     <body>
             ";
-        // line 37
+        // line 45
         $this->displayBlock('navbar', $context, $blocks);
-        // line 106
+        // line 114
         echo "
         ";
-        // line 107
+        // line 115
         $this->displayBlock('body', $context, $blocks);
-        // line 108
+        // line 116
         echo "    </body>
 </html>
 ";
@@ -128,11 +128,25 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
         // line 14
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/css/now-ui-dashboard.css?v=1.5.0"), "html", null, true);
         echo "\" rel=\"stylesheet\" />
+              <link href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/css/stylesheet.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" />
             <!-- CSS Just for demo purpose, don't include it in your project -->
             <link href=\"";
-        // line 16
+        // line 17
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/demo/demo.css"), "html", null, true);
         echo "\" rel=\"stylesheet\" />
+             <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\" />
+   <link href=\"";
+        // line 19
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("test.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\" />
+
+  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\"/>
+  <link rel=\"stylesheet\" href=\"https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css\"/>
+  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css\"/>
+
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -142,7 +156,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
 
     }
 
-    // line 19
+    // line 27
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -152,43 +166,43 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 20
+        // line 28
         echo "<!--   Core JS Files   -->
                 <script src=\"";
-        // line 21
+        // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/js/core/jquery.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 22
+        // line 30
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/js/core/popper.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 23
+        // line 31
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/js/core/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 24
+        // line 32
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/js/plugins/perfect-scrollbar.jquery.min.js"), "html", null, true);
         echo "\"></script>
                 <!--  Google Maps Plugin    -->
                 <script src=\"https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE\"></script>
                 <!-- Chart JS -->
                 <script src=\"";
-        // line 28
+        // line 36
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/js/plugins/chartjs.min.js"), "html", null, true);
         echo "\"></script>
                 <!--  Notifications Plugin    -->
                 <script src=\"";
-        // line 30
+        // line 38
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/js/plugins/bootstrap-notify.js"), "html", null, true);
         echo "\"></script>
                 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
                 <script src=\"";
-        // line 32
+        // line 40
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/js/now-ui-dashboard.min.js?v=1.5.0\" type=\"text/javascript"), "html", null, true);
         echo "\"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
                 <script src=\"";
-        // line 33
+        // line 41
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/demo/demo.js"), "html", null, true);
         echo "\"></script>
         ";
@@ -200,7 +214,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
 
     }
 
-    // line 37
+    // line 45
     public function block_navbar($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -232,7 +246,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
           </li>
           <li>
             <a  href=\"";
-        // line 58
+        // line 66
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_list_reclamations");
         echo "\">
            
@@ -290,7 +304,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
 
     }
 
-    // line 107
+    // line 115
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -321,7 +335,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
      */
     public function getDebugInfo()
     {
-        return array (  294 => 107,  236 => 58,  204 => 37,  192 => 33,  188 => 32,  183 => 30,  178 => 28,  171 => 24,  167 => 23,  163 => 22,  159 => 21,  156 => 20,  146 => 19,  134 => 16,  129 => 14,  125 => 13,  119 => 9,  109 => 8,  90 => 5,  78 => 108,  76 => 107,  73 => 106,  71 => 37,  67 => 35,  65 => 19,  62 => 18,  59 => 8,  54 => 5,  48 => 1,);
+        return array (  308 => 115,  250 => 66,  218 => 45,  206 => 41,  202 => 40,  197 => 38,  192 => 36,  185 => 32,  181 => 31,  177 => 30,  173 => 29,  170 => 28,  160 => 27,  143 => 19,  138 => 17,  133 => 15,  129 => 14,  125 => 13,  119 => 9,  109 => 8,  90 => 5,  78 => 116,  76 => 115,  73 => 114,  71 => 45,  67 => 43,  65 => 27,  62 => 26,  59 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -340,8 +354,16 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
             <!-- CSS Files -->
             <link href=\"{{ asset ('assets_admin/css/bootstrap.min.css')}}\" rel=\"stylesheet\" />
             <link href=\"{{ asset ('assets_admin/css/now-ui-dashboard.css?v=1.5.0')}}\" rel=\"stylesheet\" />
+              <link href=\"{{ asset ('assets_admin/css/stylesheet.css')}}\" rel=\"stylesheet\" />
             <!-- CSS Just for demo purpose, don't include it in your project -->
             <link href=\"{{ asset ('assets_admin/demo/demo.css')}}\" rel=\"stylesheet\" />
+             <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\" />
+   <link href=\"{{ asset ('test.css')}}\" rel=\"stylesheet\" />
+
+  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\"/>
+  <link rel=\"stylesheet\" href=\"https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css\"/>
+  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css\"/>
+
         {% endblock %}
 
         {% block javascripts %}

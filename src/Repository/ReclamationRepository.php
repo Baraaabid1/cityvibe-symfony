@@ -36,6 +36,14 @@ class ReclamationRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findAllDistinctWithResponses(): array
+    {
+        return $this->createQueryBuilder('r')
+        ->leftJoin('App\Entity\Reponser', 'reponser', 'WITH', 'reponser.idR = r.idR')
+        ->getQuery()
+        ->getResult();
+    }
+
 //    /**
 //     * @return Reclamation[] Returns an array of Reclamation objects
 //     */
