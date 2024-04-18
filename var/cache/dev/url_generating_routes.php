@@ -14,7 +14,7 @@ return [
     'app_ajout_reponser' => [[], ['_controller' => 'App\\Controller\\ReclamationController::indexRepnse'], [], [['text', '/ajout/reponser']], [], [], []],
     'app_mainAdmin_reponse' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::data'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/reponse/Admin']], [], [], []],
     'app_delete_reponseA' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::deleteReponsea'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/reponseA/delete']], [], [], []],
-    'edit_rep' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::editReponse'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/reponse/edit']], [], [], []],
+    'pp_update_response' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::updateMessage'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/response/edit']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
     '_wdt' => [['token'], ['_controller' => 'web_profiler.controller.profiler::toolbarAction'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/_wdt']], [], [], []],
     '_profiler_home' => [[], ['_controller' => 'web_profiler.controller.profiler::homeAction'], [], [['text', '/_profiler/']], [], [], []],

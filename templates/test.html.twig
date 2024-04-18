@@ -129,14 +129,40 @@
                                 </div>
                             </div>
                             <div class="message-arrow">
-                                      <a data-delete-link="{{ path('app_delete_reponseA', {'id': reclamationResponse.idrr}) }}" class="message-arrow" data-toggle="modal" data-target="#messageOptionsModal">
+                                      <a data-delete-link="{{ path('app_delete_reponseA', {'id': reclamationResponse.idrr}) }}"
+                                         data-update-route="{{ path('pp_update_response', {'id': reclamationResponse.idrr}) }}"
+                                       class="message-arrow" data-toggle="modal" data-target="#messageOptionsModal">
                                <i class="text-muted la la-angle-down fs-17"></i>
                                     </a>
                             </div>
                         </div>
                     </div>
                 </div>
-               
+                                               <!-- Modal -->
+<div class="modal fade" id="messageOptionsModal" tabindex="-1" role="dialog" aria-labelledby="messageOptionsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="messageOptionsModalLabel">Message Options</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <p id="messageContent"></p>
+
+                <form id="updateForm" action="{{ path('pp_update_response', {'id': reclamationResponse.idrr}) }}" method="POST">
+                    <input type="text" name="newValue" id="updateInput" class="form-control" placeholder="Enter new value">
+                    <div class="modal-footer">
+                        <a href="#" id="deleteLink" class="btn btn-danger">Delete</a>
+                        <button type="submit" class="btn btn-danger">Modifier</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
             {% else %}
              <div class="left-chat-message fs-13 mb-2">
                     <p class="mb-0 mr-3 pr-4">{{ reclamationResponse.textr }}</p>
@@ -175,26 +201,8 @@
       </div>
     </div>
   </div>
-<!-- Modal -->
-<div class="modal fade" id="messageOptionsModal" tabindex="-1" role="dialog" aria-labelledby="messageOptionsModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="messageOptionsModalLabel">Message Options</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p id="messageContent"></p>
-      </div>
-      <div class="modal-footer">
-        <a href="#" id="deleteLink" class="btn btn-danger">Delete</a>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+
   
   <script>
   $('#messageOptionsModal').on('show.bs.modal', function (event) {
@@ -206,45 +214,10 @@
     // Pass the delete link dynamically
     var deleteLink = button.attr('data-delete-link');
     modal.find('.modal-footer #deleteLink').attr('href', deleteLink);
+    var updatelink = button.attr('data-update-route');
+    modal.find('.modal-footer #data-update-route').attr('href', updatelink);
   });
-</script>
-<script>
-    document.getElementById('reponserForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        
-        var formData = new FormData(this);
-          document.getElementById('reponserForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-        
-        var formData = new FormData(this);
-        
-        fetch(this.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.success) {
-                // Handle success (e.g., display a success message)
-                console.log('Form submitted successfully');
-            } else {
-                // Handle validation errors (e.g., display error messages)
-                console.error('Form submission failed:', data.errors);
-            }
-        })
-        .catch(error => {
-            console.error('There was an error with the fetch operation:', error);
-        });
-    });
-        
-       
-    });
+ 
 </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js"></script>

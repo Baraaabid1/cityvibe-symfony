@@ -19,6 +19,7 @@ use App\Repository\ReponserRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\VarDumper\VarDumper;
+use App\Form\UDReponseType;
 
 
 
@@ -211,6 +212,7 @@ class ReclamationController extends AbstractController
                 'form' => $form->createView(),
                 'Reclamation' => $reclamation,
 
+
             ]);
         } else {
             // This is a regular HTTP request
@@ -267,10 +269,33 @@ class ReclamationController extends AbstractController
     }
 
 
-
-    #[Route('/reponse/edit/{id}', name: 'edit_rep')]
-    public function editReponse(Request $request, ManagerRegistry $doctrine, $id)
+    #[Route('/response/edit/{id}', name: 'pp_update_response')]
+    public function updateMessage($id, Request $request, ManagerRegistry $doctrine): Response
     {
-        return $this->redirectToRoute('testt_list_reclamations');
+        $em = $doctrine->getManager();
+    
+        // Fetch the response to update from the database
+        $rep = $em->getRepository(Reponser::class)->find($id);
+        $idR = $rep->getIdR();
+        $idRec = $idR->getIdR();
+    
+        if (!$rep) {
+            throw $this->createNotFoundException('Response not found');
+        }
+    
+        // Check if the request is a POST request
+        if ($request->isMethod('POST')) {
+            // Get the new value from the form data
+            $newValue = $request->request->get('newValue');
+    
+            // Set the new value to the entity
+            $rep->setTextr($newValue);
+    
+            // Persist changes to the database
+            $em->flush();
+    
+            // Redirect to the appropriate route
+            return $this->redirectToRoute('app_mainAdmin_reponse', ['id' => $idRec]);
+        }
     }
 }
