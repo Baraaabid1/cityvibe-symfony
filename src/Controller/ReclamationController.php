@@ -36,7 +36,7 @@ class ReclamationController extends AbstractController
     {
         $em = $doctrine->getManager();
         $Reclamation = new Reclamation();
-        $Reclamation->setIdu(1);
+        $Reclamation->setIdu(2);
         $Reclamation->setTemp(new \DateTime());
         $form = $this->createForm(AjoutReclamationType::class, $Reclamation);
         $form->handleRequest($request);
@@ -56,7 +56,7 @@ class ReclamationController extends AbstractController
     #[Route('/User/reclamations', name: 'app_list_user_reclamations')]
     public function listUserReclamations(ReclamationRepository $RecRepo): Response
     {
-        $idu = 1;
+        $idu = 2;
         $reclamations = $RecRepo->findByUserId($idu);
         $reclamations = array_reverse($reclamations);
 
@@ -64,6 +64,7 @@ class ReclamationController extends AbstractController
             'reclamations' => $reclamations,
         ]);
     }
+
     #[Route('/reclamation/delete/{id}', name: 'app_delete_reclamation')]
     public function deleteReclamation(ManagerRegistry $doctrine, $id): RedirectResponse
     {
@@ -128,6 +129,31 @@ class ReclamationController extends AbstractController
             'reclamations' => $reclamations,
         ]);
     }
+    #[Route('/Admin/reclamationsDESC', name: 'app_list_reclamationsDESC')]
+    public function listReclamationsDESC(ReclamationRepository $RecRepo): Response
+    {
+
+        $reclamations = $RecRepo->findAllDesc();
+
+        return $this->render('reclamation/list_reclamations.html.twig', [
+            'reclamations' => $reclamations,
+        ]);
+    }
+    #[Route('/admin/reclamationpartype/{type}', name: 'app_list_reclamationspartype')]
+    public function listReclamationspartype($type,ReclamationRepository $RecRepo): Response
+    {
+
+        $type =  urldecode($type);;
+
+        $reclamations = $RecRepo->findAllByType($type);
+
+        return $this->render('reclamation/list_reclamations.html.twig', [
+            'reclamations' => $reclamations,
+        ]);
+    }
+
+
+
     #[Route('/reclamation/Adelete/{id}', name: 'app_delete_reclamation_admin')]
     public function deleteReclamationAdmin(ManagerRegistry $doctrine, $id): RedirectResponse
     {
@@ -155,26 +181,110 @@ class ReclamationController extends AbstractController
 
 
     ###############################################################################  Reponse User ###############""
-    #[Route('/ajout/reponser', name: 'app_ajout_reponser')]
-    public function indexRepnse(ManagerRegistry $doctrine, Request $request)
+    #[Route('/ajout/reponser/{id}', name: 'app_ajout_reponser')]
+    public function indexRepnse(ReclamationRepository $RecRepo ,ManagerRegistry $doctrine, Request $request , $id, EntityManagerInterface $entityManager)
     {
-        $em = $doctrine->getManager();
+        
+        $em = $entityManager;
+        // Begin a transaction
+        $em->beginTransaction();
+        // Your existing code
         $Reponser = new Reponser();
-        $Reponser->setDateRepr(new \DateTime());
+        $reclamation = $em->getRepository(Reclamation::class)->find($id);
+
+        $Listreclamations =  $RecRepo->findByUserId($reclamation->getIdu());
+
+        $reclamationResponses = $em->getRepository(Reponser::class)->findBy(['idR' => $id]);
         $form = $this->createForm(AjoutReponserType::class, $Reponser);
         $form->handleRequest($request);
+        
+        // This is an AJAX request
         if ($form->isSubmitted() && $form->isValid()) {
+            $Reponser = $form->getData();
+            $Reponser->setDateRepr(new \DateTime());
+            $Reponser->setIdu($reclamation->getIdu());
+            $Reponser->setIdR($reclamation);
             $em->persist($Reponser);
             $em->flush();
 
-            return $this->redirectToRoute('app_ajout_reponser');
-        } else {
+            // Commit the transaction if everything is successful
+            $em->commit();
+            $form = $this->createForm(AjoutReponserType::class);
+
+
             return $this->render('reclamation/testreponse.html.twig', [
+                'reclamationResponses' => $reclamationResponses = $em->getRepository(Reponser::class)->findBy(['idR' => $id]),
+                'ListReclamations' => $Listreclamations,
                 'form' => $form->createView(),
+                'Reclamation' => $reclamation,
+
+
             ]);
+        } else {
+            // This is a regular HTTP request
+            return $this->render('reclamation/testreponse.html.twig', [
+                'reclamationResponses' => $reclamationResponses,
+                'form' => $form->createView(),
+                'ListReclamations' => $Listreclamations,
+                'Reclamation' => $reclamation,
+
+            ]);
+        }}
+
+        
+    #[Route('/reponse/delete/{id}', name: 'app_delete_reponse')]
+    public function deleteReponse(ManagerRegistry $doctrine, $id): RedirectResponse
+    {
+        $em = $doctrine->getManager();
+
+        // Fetch the response to delete from the database
+        $rep = $em->getRepository(Reponser::class)->find($id);
+
+        if (!$rep) {
+            throw $this->createNotFoundException('Response not found');
+        }
+
+        $idR = $rep->getIdR();
+        $id=$idR->getIdR();
+        
+        $em->remove($rep);
+        $em->flush();
+
+        return $this->redirectToRoute('app_ajout_reponser', ['id' => $id]);
+    }
+
+    #[Route('/responseuser/edit/{id}', name: 'app_update_response_user')]
+    public function updateMessageuser($id, Request $request, ManagerRegistry $doctrine): Response
+    {
+        $em = $doctrine->getManager();
+    
+        // Fetch the response to update from the database
+        $rep = $em->getRepository(Reponser::class)->find($id);
+        $idR = $rep->getIdR();
+        $idRec = $idR->getIdR();
+    
+        if (!$rep) {
+            throw $this->createNotFoundException('Response not found');
+        }
+    
+        // Check if the request is a POST request
+        if ($request->isMethod('POST')) {
+            // Get the new value from the form data
+            $newValue = $request->request->get('newValue');
+    
+            // Set the new value to the entity
+            $rep->setTextr($newValue);
+    
+            // Persist changes to the database
+            $em->flush();
+    
+            // Redirect to the appropriate route
+            return $this->redirectToRoute('app_ajout_reponser', ['id' => $idRec]);
         }
     }
-    ###############################################################################  Reponse User ###############""
+
+
+    ###############################################################################  Reponse admminn ###############""
 
 
     #[Route('/reponse/Admin/{id}', name: 'app_mainAdmin_reponse')]
@@ -205,6 +315,8 @@ class ReclamationController extends AbstractController
 
             // Commit the transaction if everything is successful
             $em->commit();
+            $form = $this->createForm(AjoutReponserType::class);
+
 
             return $this->render('test.html.twig', [
                 'reclamationResponses' => $reclamationResponses = $em->getRepository(Reponser::class)->findBy(['idR' => $id]),
@@ -225,27 +337,6 @@ class ReclamationController extends AbstractController
             ]);
         }}
 
-       /*
-        #[Route('/reponse/edit/{id}', name: 'edit_rep')]
-        public function editReclamationResponse(EntityManagerInterface $entityManager ,Request $request, $id): Response
-    {
-        $em = $entityManager;
-
-        $reclamationResponse = $em->getRepository(Reponser::class)->findBy(['idrr' => $id]);
-        $form = $this->createForm(AjoutReponseRType::class, $reclamationResponse);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->flush();
-
-            return $this->redirectToRoute('desired_route_after_modification');
-        }
-
-        return $this->render('your_template.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }*/
 
     #[Route('/reponseA/delete/{id}', name: 'app_delete_reponseA')]
     public function deleteReponsea(ManagerRegistry $doctrine, $id): RedirectResponse

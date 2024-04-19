@@ -32,7 +32,6 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
             'javascripts' => [$this, 'block_javascripts'],
             'header' => [$this, 'block_header'],
             'body' => [$this, 'block_body'],
-            'footer' => [$this, 'block_footer'],
         ];
     }
 
@@ -59,25 +58,23 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
         // line 8
         echo "        ";
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 37
+        // line 36
         echo "
         ";
-        // line 38
+        // line 37
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 50
+        // line 49
         echo "    </head>
     <body>
     ";
-        // line 52
+        // line 51
         $this->displayBlock('header', $context, $blocks);
-        // line 128
+        // line 127
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 129
-        echo "         ";
-        $this->displayBlock('footer', $context, $blocks);
-        // line 201
-        echo "    </body>
+        // line 128
+        echo "        
+    </body>
 </html>
 ";
         
@@ -152,20 +149,19 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
         echo "\" rel=\"stylesheet\">
 
             <!-- Main CSS File -->
-            <link href=\"";
+           <link href=\"";
         // line 28
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/main.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-                         <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\" />
-
-            <link href=\"";
-        // line 31
+<link href=\"";
+        // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("test.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\" />
+        echo "\" rel=\"stylesheet\">
 
-  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\"/>
-  <link rel=\"stylesheet\" href=\"https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css\"/>
-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css\"/>
+<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\" />
+<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\"/>
+<link rel=\"stylesheet\" href=\"https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css\"/>
+<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css\"/>
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -175,7 +171,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
 
     }
 
-    // line 38
+    // line 37
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -185,36 +181,36 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 39
+        // line 38
         echo "              <!-- Vendor JS Files -->
                 <script src=\"";
-        // line 40
+        // line 39
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 41
+        // line 40
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 42
+        // line 41
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/aos/aos.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 43
+        // line 42
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/glightbox/js/glightbox.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 44
+        // line 43
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/purecounter/purecounter_vanilla.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 45
+        // line 44
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/swiper/swiper-bundle.min.js"), "html", null, true);
         echo "\"></script>
 
                 <!-- Main JS File -->
                 <script src=src=\"";
-        // line 48
+        // line 47
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
         ";
@@ -226,7 +222,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
 
     }
 
-    // line 52
+    // line 51
     public function block_header($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -236,7 +232,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
 
-        // line 53
+        // line 52
         echo "    <header id=\"header\" class=\"header d-flex align-items-center sticky-top\">
     <div class=\"container-fluid container-xl position-relative d-flex align-items-center\">
 
@@ -251,7 +247,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
       <nav id=\"navmenu\" class=\"navmenu\">
         <ul>
           <li><a href=\"";
-        // line 66
+        // line 65
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_main");
         echo "\">Home</a></li>
           <li><a href=\"about.html\">About</a></li>
@@ -306,7 +302,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
             </ul>
           </li>
           <li><a href=\"";
-        // line 118
+        // line 117
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ajout_reclamation");
         echo "\">Reclamation</a></li>
         </ul>
@@ -326,7 +322,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
 
     }
 
-    // line 128
+    // line 127
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -336,96 +332,6 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-    }
-
-    // line 129
-    public function block_footer($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
-
-        // line 130
-        echo "         <footer id=\"footer\" class=\"footer position-relative\">
-
-    <div class=\"container footer-top\">
-      <div class=\"row gy-4\">
-        <div class=\"col-lg-4 col-md-6 footer-about\">
-          <a href=\"index.html\" class=\"logo d-flex align-items-center\">
-            <span class=\"\">Mentor</span>
-          </a>
-          <div class=\"footer-contact pt-3\">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class=\"mt-3\"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class=\"social-links d-flex mt-4\">
-            <a href=\"\"><i class=\"bi bi-twitter\"></i></a>
-            <a href=\"\"><i class=\"bi bi-facebook\"></i></a>
-            <a href=\"\"><i class=\"bi bi-instagram\"></i></a>
-            <a href=\"\"><i class=\"bi bi-linkedin\"></i></a>
-          </div>
-        </div>
-
-        <div class=\"col-lg-2 col-md-3 footer-links\">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href=\"#\">Home</a></li>
-            <li><a href=\"#\">About us</a></li>
-            <li><a href=\"#\">Services</a></li>
-            <li><a href=\"#\">Terms of service</a></li>
-            <li><a href=\"#\">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class=\"col-lg-2 col-md-3 footer-links\">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href=\"#\">Web Design</a></li>
-            <li><a href=\"#\">Web Development</a></li>
-            <li><a href=\"#\">Product Management</a></li>
-            <li><a href=\"#\">Marketing</a></li>
-            <li><a href=\"#\">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class=\"col-lg-4 col-md-12 footer-newsletter\">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action=\"forms/newsletter.php\" method=\"post\" class=\"php-email-form\">
-            <div class=\"newsletter-form\"><input type=\"email\" name=\"email\"><input type=\"submit\" value=\"Subscribe\"></div>
-            <div class=\"loading\">Loading</div>
-            <div class=\"error-message\"></div>
-            <div class=\"sent-message\">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
-
-      </div>
-    </div>
-
-    <div class=\"container copyright text-center mt-4\">
-      <p>© <span>Copyright</span> <strong class=\"px-1\">SiteName</strong> <span>All Rights Reserved</span></p>
-      <div class=\"credits\">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href=\"https://bootstrapmade.com/\">BootstrapMade</a>
-      </div>
-    </div>
-
-  </footer>
-         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -447,7 +353,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  358 => 130,  348 => 129,  330 => 128,  310 => 118,  255 => 66,  240 => 53,  230 => 52,  218 => 48,  212 => 45,  208 => 44,  204 => 43,  200 => 42,  196 => 41,  192 => 40,  189 => 39,  179 => 38,  163 => 31,  157 => 28,  151 => 25,  147 => 24,  143 => 23,  139 => 22,  135 => 21,  121 => 9,  111 => 8,  92 => 5,  80 => 201,  77 => 129,  74 => 128,  72 => 52,  68 => 50,  66 => 38,  63 => 37,  60 => 8,  55 => 5,  49 => 1,);
+        return array (  326 => 127,  306 => 117,  251 => 65,  236 => 52,  226 => 51,  214 => 47,  208 => 44,  204 => 43,  200 => 42,  196 => 41,  192 => 40,  188 => 39,  185 => 38,  175 => 37,  158 => 29,  154 => 28,  148 => 25,  144 => 24,  140 => 23,  136 => 22,  132 => 21,  118 => 9,  108 => 8,  89 => 5,  76 => 128,  73 => 127,  71 => 51,  67 => 49,  65 => 37,  62 => 36,  59 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -479,14 +385,13 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
             <link href=\"{{ asset ('assets/vendor/swiper/swiper-bundle.min.css')}}\" rel=\"stylesheet\">
 
             <!-- Main CSS File -->
-            <link href=\"{{ asset ('assets/css/main.css')}}\" rel=\"stylesheet\">
-                         <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\" />
+           <link href=\"{{ asset('assets/css/main.css') }}\" rel=\"stylesheet\">
+<link href=\"{{ asset('test.css') }}\" rel=\"stylesheet\">
 
-            <link href=\"{{ asset ('test.css')}}\" rel=\"stylesheet\" />
-
-  <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\"/>
-  <link rel=\"stylesheet\" href=\"https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css\"/>
-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css\"/>
+<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\" />
+<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\"/>
+<link rel=\"stylesheet\" href=\"https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css\"/>
+<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css\"/>
         {% endblock %}
 
         {% block javascripts %}
@@ -580,78 +485,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
   </header>
     {% endblock %}
         {% block body %}{% endblock %}
-         {% block footer %}
-         <footer id=\"footer\" class=\"footer position-relative\">
-
-    <div class=\"container footer-top\">
-      <div class=\"row gy-4\">
-        <div class=\"col-lg-4 col-md-6 footer-about\">
-          <a href=\"index.html\" class=\"logo d-flex align-items-center\">
-            <span class=\"\">Mentor</span>
-          </a>
-          <div class=\"footer-contact pt-3\">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class=\"mt-3\"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class=\"social-links d-flex mt-4\">
-            <a href=\"\"><i class=\"bi bi-twitter\"></i></a>
-            <a href=\"\"><i class=\"bi bi-facebook\"></i></a>
-            <a href=\"\"><i class=\"bi bi-instagram\"></i></a>
-            <a href=\"\"><i class=\"bi bi-linkedin\"></i></a>
-          </div>
-        </div>
-
-        <div class=\"col-lg-2 col-md-3 footer-links\">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href=\"#\">Home</a></li>
-            <li><a href=\"#\">About us</a></li>
-            <li><a href=\"#\">Services</a></li>
-            <li><a href=\"#\">Terms of service</a></li>
-            <li><a href=\"#\">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class=\"col-lg-2 col-md-3 footer-links\">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href=\"#\">Web Design</a></li>
-            <li><a href=\"#\">Web Development</a></li>
-            <li><a href=\"#\">Product Management</a></li>
-            <li><a href=\"#\">Marketing</a></li>
-            <li><a href=\"#\">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class=\"col-lg-4 col-md-12 footer-newsletter\">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
-          <form action=\"forms/newsletter.php\" method=\"post\" class=\"php-email-form\">
-            <div class=\"newsletter-form\"><input type=\"email\" name=\"email\"><input type=\"submit\" value=\"Subscribe\"></div>
-            <div class=\"loading\">Loading</div>
-            <div class=\"error-message\"></div>
-            <div class=\"sent-message\">Your subscription request has been sent. Thank you!</div>
-          </form>
-        </div>
-
-      </div>
-    </div>
-
-    <div class=\"container copyright text-center mt-4\">
-      <p>© <span>Copyright</span> <strong class=\"px-1\">SiteName</strong> <span>All Rights Reserved</span></p>
-      <div class=\"credits\">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href=\"https://bootstrapmade.com/\">BootstrapMade</a>
-      </div>
-    </div>
-
-  </footer>
-         {% endblock %}
+        
     </body>
 </html>
 ", "base.html.twig", "C:\\Users\\baraa\\OneDrive\\Desktop\\Workshops Symfony\\CRUD\\SymfonyPIDEV\\templates\\base.html.twig");

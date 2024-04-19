@@ -740,11 +740,7 @@ img.shadow {
   right: 3px;
   width: 4px
 }
-.chat-input-wrapper {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
+
 
 .ps-container>.ps-scrollbar-y-rail>.ps-scrollbar-y {
   position: absolute;

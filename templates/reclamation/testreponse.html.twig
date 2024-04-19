@@ -1,1 +1,239 @@
-{{ form(form) }}
+{% extends 'base.html.twig' %}
+{% block body %}
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-md-4 col-12 card-stacked">
+              <div class="card shadow-line mb-3 chat">
+               
+                <div class="chat-search pl-3 pr-3">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search a conversation">
+                    <div class="input-group-append prepend-white">
+                      <span class="input-group-text pl-2 pr-2">
+                        <i class="fs-17 las la-search drop-shadow"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+         
+                <div class="chat-user-panel">
+                  <div class="pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll">
+                    {% for lr in ListReclamations %}
+                     {% if lr.idr == Reclamation.idr %}
+                     <div class="chat-item active d-flex pl-3 pr-0 pt-3 pb-3">
+                      <div class="w-100">
+                        <div class="d-flex pl-0">
+                          <img class="rounded-circle shadow avatar-sm mr-3" src="https://user-images.githubusercontent.com/35243461/168796877-f6c8819a-5d6e-4b2a-bd56-04963639239b.jpg">
+                          <div>
+                            <p class="margin-auto fw-400 text-dark-75"> Administrateur</p>
+                            <div class="d-flex flex-row mt-1">
+                              <span>
+                                <div class="svg15 double-check"></div>
+                              </span>
+                             <span class="message-shortcut margin-auto fw-400 fs-13 ml-1 mr-4">
+                            <a href="{{ path('app_mainAdmin_reponse', {'id': lr.idR}) }}">{{ lr.titrer }}</a>
+                        </span>                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+            {% else %}
+
+
+
+                    <div class="chat-item d-flex pl-3 pr-0 pt-3 pb-3">
+                      <div class="w-100">
+                        <div class="d-flex pl-0">
+                          <img class="rounded-circle shadow avatar-sm mr-3" src="https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg">
+                          <div>
+                            <p class="margin-auto fw-400 text-dark-75">Administrateur</p>
+                            <div class="d-flex flex-row mt-1">
+                              <span>
+                                <div class="svg15 double-check"></div>
+                              </span>
+ <span class="message-shortcut margin-auto fw-400 fs-13 ml-1 mr-4">
+                            <a href="{{ path('app_ajout_reponser', {'id': lr.idR}) }}">{{ lr.titrer }}</a>
+                        </span>                             </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                                {% endif %}
+
+                    {% endfor %}
+                 </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 col-12 card-stacked">
+              <div class="card shadow-line mb-3 chat chat-panel">
+                <div class="p-3 chat-header">
+                  <div class="d-flex">
+                    <div class="w-100 d-flex pl-0">
+                      <img class="rounded-circle shadow avatar-sm mr-3 chat-profile-picture" src="https://user-images.githubusercontent.com/35243461/168796877-f6c8819a-5d6e-4b2a-bd56-04963639239b.jpg">
+                      <div class="mr-3">
+                        <a href="!#">
+                          <p class="fw-400 mb-0 text-dark-75">{{ Reclamation.titrer }}</p>
+                        </a>
+                        <p class="sub-caption text-muted text-small mb-0"><i class="la la-clock mr-1"></i>last seen today at 09:15 PM</p>
+                      </div>
+                    </div>
+                    <div class="flex-shrink-0 margin-auto">
+                      <a href="#" class="btn btn-sm btn-icon btn-light active text-dark ml-2">
+                        <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="feather">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <line x1="12" y1="16" x2="12" y2="12"></line>
+                          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                      </a>
+                      <a href="#" class="btn btn-sm btn-icon btn-light active text-dark ml-2">
+                        <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="feather">
+                          <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                          <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                        </svg>
+                      </a>
+                      <a href="#" class="btn btn-sm btn-icon btn-light active text-dark ml-2">
+                        <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="feather">
+                          <circle cx="11" cy="11" r="8"></circle>
+                          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                      </a>
+                      <a href="#" class="btn btn-sm btn-icon btn-light active text-dark ml-2">
+                        <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="feather">
+                          <circle cx="12" cy="12" r="1"></circle>
+                          <circle cx="12" cy="5" r="1"></circle>
+                          <circle cx="12" cy="19" r="1"></circle>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-row mb-3 navigation-mobile scrollable-chat-panel chat-panel-scroll">
+                  <div class="w-100 p-3">
+                                {% for reclamationResponse in reclamationResponses %}
+            {% if reclamationResponse.idu == Reclamation.idu %}
+              <div class="d-flex flex-row-reverse mb-2">
+                    <div class="right-chat-message fs-13 mb-2">
+                        <div class="mb-0 mr-3 pr-4">
+                            <div class="d-flex flex-row">
+                                <div class="pr-2">{{ reclamationResponse.textr }}</div>
+                                <div class="pr-4"></div>
+                            </div>
+                        </div>
+                        <div class="message-options dark">
+                            <div class="message-time">
+                                <div class="d-flex flex-row">
+                                    <div class="mr-2">{{ reclamationResponse.dateRepr|date('H:i') }}</div>
+                                    <div class="svg15 double-check"></div>
+                                </div>
+                            </div>
+                            <div class="message-arrow">
+                                      <a data-delete-linku="{{ path('app_delete_reponse', {'id': reclamationResponse.idrr}) }}"
+                                         data-update-route="{{ path('app_update_response_user', {'id': reclamationResponse.idrr}) }}"
+                                       class="message-arrow" data-toggle="modal" data-target="#messageOptionsModaluser">
+                               <i class="text-muted la la-angle-down fs-17"></i>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                               <!-- Modal -->
+                                    <div class="modal fade" id="messageOptionsModaluser"  tabindex="-1" role="dialog" aria-labelledby="messageOptionsModaluserLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="messageOptionsModaluserLabel">Votre message</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <p id="messageContent"></p>
+
+                                            <form id="updateForm" action="{{ path('app_update_response_user', {'id': reclamationResponse.idrr}) }}" method="POST" novalidate="novalidate" autocomplete="off">
+                                                <input type="text" name="newValue" id="updateInput" class="form-control" placeholder="Modifier votre message ">
+                                                <div class="modal-footer">
+                                                    <a href="#" id="deleteLinku" class="btn btn-danger">Supprimer</a>
+                                                    <button type="submit" class="btn btn-danger">Modifier</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            {% else %}
+             <div class="left-chat-message fs-13 mb-2">
+                    <p class="mb-0 mr-3 pr-4">{{ reclamationResponse.textr }}</p>
+                    <div class="message-options">
+                        <div class="message-time">{{ reclamationResponse.dateRepr|date('H:i') }}</div>
+                        <div class="message-arrow"><i class="text-muted la la-angle-down fs-17"></i></div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+                    
+                <div class="chat-search pl-3 pr-3">
+                                 {{ form_start(form, {'attr': {'novalidate':'novalidate', 'autocomplete': 'off'}}) }}
+        <div class="input-group-append prepend-white">
+                {{ form_widget(form.textr, {'attr': {'class': 'form-control', 'placeholder': 'Ecrire un message ...'}}) }}
+            <button type="submit" class="btn btn-primary btn-sm" id="sendMessageBtn">
+                <i class="fs-19 bi bi-cursor ml-2 mr-2"></i>
+            </button>
+        </div>
+                {{ form_end(form) }}
+    
+    </div>
+</div>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js"></script>
+
+<!-- Your script -->
+<script>
+
+$(document).ready(function() {
+    // Event listener for showing the modal when clicking on the message arrow
+    $('[data-toggle="modal"]').on('click', function(event) {
+        event.preventDefault();
+        var modalId = $(this).data('target');
+        $(modalId).modal('show');
+    });
+
+    // Event listener for dynamically created modals
+   $(document).on('show.bs.modal', '.modal', function(event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var modal = $(this);
+    
+    // Get the delete link and set it dynamically
+    var deleteLinku = button.data('delete-linku');
+    modal.find('.modal-footer #deleteLinku').attr('href', deleteLinku);
+
+    // Set the update route dynamically for the form action
+    var updateRoute = button.data('update-route');
+    modal.find('#updateForm').attr('action', updateRoute);
+});
+
+    // Event listener for closing the modal when "fermer" button is clicked
+    $('.modal').on('click', '.btn-secondary', function(event) {
+        event.preventDefault();
+        $(this).closest('.modal').modal('hide');
+    });
+});
+</script>
+  <script src="{{ asset ('js/test.js') }}"></script>
+
+    {% endblock %}

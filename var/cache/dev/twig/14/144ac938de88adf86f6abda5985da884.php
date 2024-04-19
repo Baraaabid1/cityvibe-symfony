@@ -76,7 +76,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                 <span class=\"navbar-toggler-bar bar3\"></span>
               </button>
             </div>
-            <a class=\"navbar-brand\" href=\"#pablo\">Table List</a>
+            <a class=\"navbar-brand\" href=\"#pablo\">List des Reclamations </a>
           </div>
           <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigation\" aria-controls=\"navigation-index\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-bar navbar-kebab\"></span>
@@ -139,6 +139,44 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                 <h4 class=\"card-title\"> Liste des Reclamations </h4>
               </div>
               <div class=\"card-body\">
+          <div style=\"display: inline-block; position: relative;\">
+    <a class=\"nav-link\" href=\"";
+        // line 77
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_list_reclamationsDESC");
+        echo "\">
+        <i class=\"now-ui-icons arrows-1_minimal-up\"></i>
+    </a>
+</div>
+
+<div style=\"display: inline-block; margin-left: 10px;\">
+    <a class=\"nav-link\" href=\"";
+        // line 83
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_list_reclamations");
+        echo "\">
+        <i class=\"now-ui-icons arrows-1_minimal-down\"></i>
+    </a>
+</div>
+<div style=\"display: inline-block; margin-left: auto;\">
+    <div style=\"display: inline-block; margin-right: 10px;\">
+        <div class=\"dropdown\" style=\"position: relative;\">
+            <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                <p>
+                    <span class=\"d-lg-none d-md-block\">Some Actions</span>
+                </p>
+            </a>
+           <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\" style=\"position: absolute;\">
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"ReclamationUrgente\">Réclamation Urgente</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"BugsOuPlantages\">Bugs ou plantages</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"ContenuInapproprie\">Contenu inapproprié</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"InformationsIncorrectes\">Informations incorrectes</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"ProblemesDeSecurite\">Problèmes de sécurité</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"SuggestionsDamelioration\">Suggestions d'amélioration</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
                 <div class=\"table-responsive\">
                   <style>
   .table td, .table th {
@@ -171,9 +209,9 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
   </thead>
  <tbody>
     ";
-        // line 107
+        // line 139
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 107, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 139, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -188,54 +226,54 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["reclamation"]) {
-            // line 108
+            // line 140
             echo "        <tr>
             <td>";
-            // line 109
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "titrer", [], "any", false, false, false, 109), "html", null, true);
+            // line 141
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "titrer", [], "any", false, false, false, 141), "html", null, true);
             echo "</td>
             <td>";
-            // line 110
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "temp", [], "any", false, false, false, 110), "Y-m-d H:i:s"), "html", null, true);
+            // line 142
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "temp", [], "any", false, false, false, 142), "Y-m-d H:i:s"), "html", null, true);
             echo "</td>
             <td>";
-            // line 111
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "typer", [], "any", false, false, false, 111), "html", null, true);
+            // line 143
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "typer", [], "any", false, false, false, 143), "html", null, true);
             echo "</td>
             <td>";
-            // line 112
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "Apropo", [], "any", false, false, false, 112), "html", null, true);
+            // line 144
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "Apropo", [], "any", false, false, false, 144), "html", null, true);
             echo "</td>
             <td>";
-            // line 113
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "contenu", [], "any", false, false, false, 113), "html", null, true);
+            // line 145
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "contenu", [], "any", false, false, false, 145), "html", null, true);
             echo "</td>
             <td>
                 <a href=\"";
-            // line 115
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_reclamation_admin", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 115)]), "html", null, true);
+            // line 147
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_reclamation_admin", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 147)]), "html", null, true);
             echo "\">Supprimer</a>
                 <a href=\"";
-            // line 116
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mainAdmin_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 116)]), "html", null, true);
+            // line 148
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mainAdmin_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 148)]), "html", null, true);
             echo "\">Repondre</a>
             </td>
         </tr>
         ";
-            // line 119
-            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 119, $this->source); })()), "request", [], "any", false, false, false, 119), "query", [], "any", false, false, false, 119), "get", ["id"], "method", false, false, false, 119) == twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 119))) {
-                // line 120
+            // line 151
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 151, $this->source); })()), "request", [], "any", false, false, false, 151), "query", [], "any", false, false, false, 151), "get", ["id"], "method", false, false, false, 151) == twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 151))) {
+                // line 152
                 echo "            <tr>
                 <td colspan=\"6\">
                     ";
-                // line 122
+                // line 154
                 $this->displayBlock('reponseAdmin', $context, $blocks);
-                // line 124
+                // line 156
                 echo "                </td>
             </tr>
         ";
             }
-            // line 127
+            // line 159
             echo "    ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -249,7 +287,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 128
+        // line 160
         echo "</tbody>
 </table>
 
@@ -272,7 +310,19 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
   <script src=\"../assets/js/now-ui-dashboard.min.js?v=1.5.0\" type=\"text/javascript\"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src=\"../assets/demo/demo.js\"></script>
 
-
+<script>
+    // Add event listener to dropdown items
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', event => {
+            // Get the selected type
+            const type = event.target.getAttribute('data-type');
+            // Construct the URL with the selected type
+            const url = `/admin/reclamationpartype/\${type}`;
+            // Redirect to the URL
+            window.location.href = url;
+        });
+    });
+</script>
 
 ";
         
@@ -283,7 +333,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
 
     }
 
-    // line 122
+    // line 154
     public function block_reponseAdmin($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -293,7 +343,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "reponseAdmin"));
 
-        // line 123
+        // line 155
         echo "                    ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -324,7 +374,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  297 => 123,  287 => 122,  253 => 128,  239 => 127,  234 => 124,  232 => 122,  228 => 120,  226 => 119,  220 => 116,  216 => 115,  211 => 113,  207 => 112,  203 => 111,  199 => 110,  195 => 109,  192 => 108,  175 => 107,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  347 => 155,  337 => 154,  291 => 160,  277 => 159,  272 => 156,  270 => 154,  266 => 152,  264 => 151,  258 => 148,  254 => 147,  249 => 145,  245 => 144,  241 => 143,  237 => 142,  233 => 141,  230 => 140,  213 => 139,  154 => 83,  145 => 77,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -341,7 +391,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                 <span class=\"navbar-toggler-bar bar3\"></span>
               </button>
             </div>
-            <a class=\"navbar-brand\" href=\"#pablo\">Table List</a>
+            <a class=\"navbar-brand\" href=\"#pablo\">List des Reclamations </a>
           </div>
           <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigation\" aria-controls=\"navigation-index\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
             <span class=\"navbar-toggler-bar navbar-kebab\"></span>
@@ -404,6 +454,38 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                 <h4 class=\"card-title\"> Liste des Reclamations </h4>
               </div>
               <div class=\"card-body\">
+          <div style=\"display: inline-block; position: relative;\">
+    <a class=\"nav-link\" href=\"{{ path('app_list_reclamationsDESC') }}\">
+        <i class=\"now-ui-icons arrows-1_minimal-up\"></i>
+    </a>
+</div>
+
+<div style=\"display: inline-block; margin-left: 10px;\">
+    <a class=\"nav-link\" href=\"{{ path('app_list_reclamations') }}\">
+        <i class=\"now-ui-icons arrows-1_minimal-down\"></i>
+    </a>
+</div>
+<div style=\"display: inline-block; margin-left: auto;\">
+    <div style=\"display: inline-block; margin-right: 10px;\">
+        <div class=\"dropdown\" style=\"position: relative;\">
+            <a class=\"nav-link dropdown-toggle\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                <p>
+                    <span class=\"d-lg-none d-md-block\">Some Actions</span>
+                </p>
+            </a>
+           <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\" style=\"position: absolute;\">
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"ReclamationUrgente\">Réclamation Urgente</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"BugsOuPlantages\">Bugs ou plantages</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"ContenuInapproprie\">Contenu inapproprié</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"InformationsIncorrectes\">Informations incorrectes</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"ProblemesDeSecurite\">Problèmes de sécurité</a>
+                <a class=\"dropdown-item\" href=\"#\" data-type=\"SuggestionsDamelioration\">Suggestions d'amélioration</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
                 <div class=\"table-responsive\">
                   <style>
   .table td, .table th {
@@ -478,7 +560,19 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
   <script src=\"../assets/js/now-ui-dashboard.min.js?v=1.5.0\" type=\"text/javascript\"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src=\"../assets/demo/demo.js\"></script>
 
-
+<script>
+    // Add event listener to dropdown items
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', event => {
+            // Get the selected type
+            const type = event.target.getAttribute('data-type');
+            // Construct the URL with the selected type
+            const url = `/admin/reclamationpartype/\${type}`;
+            // Redirect to the URL
+            window.location.href = url;
+        });
+    });
+</script>
 
 {% endblock %}", "reclamation/list_reclamations.html.twig", "C:\\Users\\baraa\\OneDrive\\Desktop\\Workshops Symfony\\CRUD\\SymfonyPIDEV\\templates\\reclamation\\list_reclamations.html.twig");
     }

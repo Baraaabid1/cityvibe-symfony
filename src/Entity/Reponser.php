@@ -26,6 +26,7 @@ class Reponser
    
     #[ORM\Column(length: 65535)]
     #[Assert\NotBlank(message:"champ obligatoire")]
+    #[Assert\Length(max:30,maxMessage:"Votre message est trop long ")]
     private ?string $textr = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

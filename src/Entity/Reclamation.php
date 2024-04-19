@@ -27,7 +27,7 @@ class Reclamation
    
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message:"champ obligatoire")]
-    #[Assert\Length(max:500,maxMessage:"le titre ne doit pas depasser 50 caractaire")]
+    #[Assert\Length(max:50,maxMessage:"le titre ne doit pas depasser 50 caractaire")]
     private ?string $titrer = null;
 
    

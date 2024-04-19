@@ -1,8 +1,5 @@
 {% extends 'baseA.html.twig' %}
 {% block body %}
-  <div class="main-wrapper">
-    <div class="container">
-      <div class="page-content">
         <div class="container mt-5">
           <div class="row">
             <div class="col-md-4 col-12 card-stacked">
@@ -40,7 +37,8 @@
                         </div>
                       </div>
                       </div>
-                       {% endif %}
+                                  {% else %}
+
 
 
 
@@ -61,6 +59,8 @@
                         </div>
                       </div>
                     </div>
+                                           {% endif %}
+
                     {% endfor %}
                  </div>
                 </div>
@@ -133,17 +133,16 @@
                                          data-update-route="{{ path('pp_update_response', {'id': reclamationResponse.idrr}) }}"
                                        class="message-arrow" data-toggle="modal" data-target="#messageOptionsModal">
                                <i class="text-muted la la-angle-down fs-17"></i>
-                                    </a>
+                                    </a> 
                             </div>
                         </div>
                     </div>
-                </div>
-                                               <!-- Modal -->
+                                                                   <!-- Modal -->
 <div class="modal fade" id="messageOptionsModal" tabindex="-1" role="dialog" aria-labelledby="messageOptionsModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="messageOptionsModalLabel">Message Options</h5>
+                <h5 class="modal-title" id="messageOptionsModalLabel">Votre message</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -151,18 +150,20 @@
             <div class="modal-body">
                     <p id="messageContent"></p>
 
-                <form id="updateForm" action="{{ path('pp_update_response', {'id': reclamationResponse.idrr}) }}" method="POST">
-                    <input type="text" name="newValue" id="updateInput" class="form-control" placeholder="Enter new value">
+                <form id="updateForm" action="{{ path('pp_update_response', {'id': reclamationResponse.idrr}) }}" method="POST" novalidate="novalidate" autocomplete="off">
+                    <input type="text" name="newValue" id="updateInput" class="form-control" placeholder="Modifier votre message ">
                     <div class="modal-footer">
-                        <a href="#" id="deleteLink" class="btn btn-danger">Delete</a>
+                        <a href="#" id="deleteLink" class="btn btn-danger">Supprimer</a>
                         <button type="submit" class="btn btn-danger">Modifier</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+                </div>
+
             {% else %}
              <div class="left-chat-message fs-13 mb-2">
                     <p class="mb-0 mr-3 pr-4">{{ reclamationResponse.textr }}</p>
@@ -181,7 +182,7 @@
                 <div class="chat-search pl-3 pr-3">
                                  {{ form_start(form, {'attr': {'novalidate':'novalidate', 'autocomplete': 'off'}}) }}
         <div class="input-group-append prepend-white">
-                {{ form_widget(form.textr, {'attr': {'class': 'form-control', 'placeholder': 'Write a message'}}) }}
+                {{ form_widget(form.textr, {'attr': {'class': 'form-control', 'placeholder': 'Ecrire un message ...'}}) }}
             <button type="submit" class="btn btn-primary btn-sm" id="sendMessageBtn">
                 <i class="fs-19 bi bi-cursor ml-2 mr-2"></i>
             </button>
@@ -198,9 +199,7 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+  
 
 
   
@@ -214,8 +213,10 @@
     // Pass the delete link dynamically
     var deleteLink = button.attr('data-delete-link');
     modal.find('.modal-footer #deleteLink').attr('href', deleteLink);
-    var updatelink = button.attr('data-update-route');
-    modal.find('.modal-footer #data-update-route').attr('href', updatelink);
+
+    // Pass the update route dynamically
+    var updateRoute = button.attr('data-update-route');
+    modal.find('#updateForm').attr('action', updateRoute);
   });
  
 </script>

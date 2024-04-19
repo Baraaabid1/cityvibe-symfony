@@ -151,6 +151,10 @@ class __TwigTemplate_5b03896b83eaf58ee6d05b1ed538839f extends Template
             // line 45
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_edit_reclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 45)]), "html", null, true);
             echo "\" class=\"btn btn-primary mx-2\">Modifier</a>
+        <a href=\"";
+            // line 46
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ajout_reponser", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 46)]), "html", null, true);
+            echo "\" class=\"btn btn-primary mx-2\">Repondre</a>
            </div>
           </div>
         </div>
@@ -160,7 +164,7 @@ class __TwigTemplate_5b03896b83eaf58ee6d05b1ed538839f extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 51
+        // line 52
         echo "    </div>
 
   </div>
@@ -182,33 +186,33 @@ class __TwigTemplate_5b03896b83eaf58ee6d05b1ed538839f extends Template
 
 <!-- Vendor JS Files -->
 <script src=\"";
-        // line 71
+        // line 72
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 72
+        // line 73
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 73
+        // line 74
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/aos/aos.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 74
+        // line 75
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/glightbox/js/glightbox.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 75
+        // line 76
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/purecounter/purecounter_vanilla.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 76
+        // line 77
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/swiper/swiper-bundle.min.js"), "html", null, true);
         echo "\"></script>
 
 <!-- Main JS File -->
 <script src=\"";
-        // line 79
+        // line 80
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
 </body>
@@ -243,7 +247,7 @@ class __TwigTemplate_5b03896b83eaf58ee6d05b1ed538839f extends Template
      */
     public function getDebugInfo()
     {
-        return array (  212 => 79,  206 => 76,  202 => 75,  198 => 74,  194 => 73,  190 => 72,  186 => 71,  164 => 51,  152 => 45,  148 => 44,  143 => 42,  139 => 41,  135 => 40,  131 => 39,  126 => 36,  122 => 35,  106 => 22,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  216 => 80,  210 => 77,  206 => 76,  202 => 75,  198 => 74,  194 => 73,  190 => 72,  168 => 52,  156 => 46,  152 => 45,  148 => 44,  143 => 42,  139 => 41,  135 => 40,  131 => 39,  126 => 36,  122 => 35,  106 => 22,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -293,6 +297,7 @@ class __TwigTemplate_5b03896b83eaf58ee6d05b1ed538839f extends Template
             <div class=\"text-center mt-3\">
        <a href=\"{{ path('app_delete_reclamation', {'id': reclamation.idr}) }}\" class=\"btn btn-primary mx-2\">Supprimer</a>
         <a href=\"{{ path('app_edit_reclamation', {'id': reclamation.idr}) }}\" class=\"btn btn-primary mx-2\">Modifier</a>
+        <a href=\"{{ path('app_ajout_reponser', {'id': reclamation.idr}) }}\" class=\"btn btn-primary mx-2\">Repondre</a>
            </div>
           </div>
         </div>

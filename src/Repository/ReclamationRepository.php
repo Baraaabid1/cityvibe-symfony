@@ -44,6 +44,21 @@ class ReclamationRepository extends ServiceEntityRepository
         ->getResult();
     }
 
+    public function findAllDesc(): array
+    {
+        return $this->createQueryBuilder('r')
+            ->orderBy('r.idR', 'DESC') 
+            ->getQuery()
+            ->getResult();
+    }
+    public function findAllByType(string $type): array
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.typer = :type')
+            ->setParameter('type', $type)
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Reclamation[] Returns an array of Reclamation objects
 //     */
