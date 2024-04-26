@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerWTvvuA3\App_KernelDevDebugContainer([
     'container.build_hash' => 'WTvvuA3',
-    'container.build_id' => 'a61acdfd',
-    'container.build_time' => 1714140785,
+    'container.build_id' => '5aebf989',
+    'container.build_time' => 1714175050,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerWTvvuA3');

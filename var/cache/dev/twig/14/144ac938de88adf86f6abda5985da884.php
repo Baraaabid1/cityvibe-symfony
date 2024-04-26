@@ -266,9 +266,9 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                 if (titleCell) {
                     const titleText = titleCell.textContent.trim().toLowerCase();
                     if (titleText.includes(searchTerm)) {
-                        row.style.display = ''; // Show the row
+                        row.style.display = ''; 
                     } else {
-                        row.style.display = 'none'; // Hide the row
+                        row.style.display = 'none'; 
                     }
                 }
             });
@@ -476,9 +476,9 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                 if (titleCell) {
                     const titleText = titleCell.textContent.trim().toLowerCase();
                     if (titleText.includes(searchTerm)) {
-                        row.style.display = ''; // Show the row
+                        row.style.display = ''; 
                     } else {
-                        row.style.display = 'none'; // Hide the row
+                        row.style.display = 'none'; 
                     }
                 }
             });

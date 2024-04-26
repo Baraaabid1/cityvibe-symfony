@@ -20,6 +20,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\VarDumper\VarDumper;
 use App\Form\UDReponseType;
+use ConsoleTVs\Profanity\Builder;
+
 
 
 
@@ -29,6 +31,8 @@ use App\Form\UDReponseType;
 
 class ReclamationController extends AbstractController
 {
+
+  
 
     ########################## Reclamation User ##########################
     #[Route('/ajout/reclamation', name: 'app_ajout_reclamation')]
@@ -59,6 +63,11 @@ class ReclamationController extends AbstractController
         $idu = 2;
         $reclamations = $RecRepo->findByUserId($idu);
         $reclamations = array_reverse($reclamations);
+        
+        foreach ($reclamations as $reclamation) {
+            $reclamation->setTitrer(Builder::blocker($reclamation->getTitrer())->filter());
+            $reclamation->setContenu(Builder::blocker($reclamation->getContenu())->filter());
+        }
 
         return $this->render('reclamation/test.html.twig', [
             'reclamations' => $reclamations,
@@ -118,12 +127,17 @@ class ReclamationController extends AbstractController
         ]);
     }
 
+
     ####################################################### reclamation admin#####################################"
     #[Route('/Admin/reclamations', name: 'app_list_reclamations')]
     public function listReclamations(ReclamationRepository $RecRepo): Response
     {
 
         $reclamations = $RecRepo->findAll();
+        foreach ($reclamations as $reclamation) {
+            $reclamation->setTitrer(Builder::blocker($reclamation->getTitrer())->filter());
+            $reclamation->setContenu(Builder::blocker($reclamation->getContenu())->filter());
+        }
 
         return $this->render('reclamation/list_reclamations.html.twig', [
             'reclamations' => $reclamations,
@@ -134,6 +148,10 @@ class ReclamationController extends AbstractController
     {
 
         $reclamations = $RecRepo->findAllDesc();
+        foreach ($reclamations as $reclamation) {
+            $reclamation->setTitrer(Builder::blocker($reclamation->getTitrer())->filter());
+            $reclamation->setContenu(Builder::blocker($reclamation->getContenu())->filter());
+        }
 
         return $this->render('reclamation/list_reclamations.html.twig', [
             'reclamations' => $reclamations,
@@ -145,6 +163,10 @@ class ReclamationController extends AbstractController
         $type =  urldecode($type);;
 
         $reclamations = $RecRepo->findAllByType($type);
+        foreach ($reclamations as $reclamation) {
+            $reclamation->setTitrer(Builder::blocker($reclamation->getTitrer())->filter());
+            $reclamation->setContenu(Builder::blocker($reclamation->getContenu())->filter());
+        }
 
         return $this->render('reclamation/list_reclamations.html.twig', [
             'reclamations' => $reclamations,
@@ -194,6 +216,14 @@ class ReclamationController extends AbstractController
         $Listreclamations =  $RecRepo->findByUserId($reclamation->getIdu());
 
         $reclamationResponses = $em->getRepository(Reponser::class)->findBy(['idR' => $id]);
+        foreach ($Listreclamations as $reclamation) {
+            $reclamation->setTitrer(Builder::blocker($reclamation->getTitrer())->filter());
+            $reclamation->setContenu(Builder::blocker($reclamation->getContenu())->filter());
+        }
+        foreach ($reclamationResponses as $reponse) {
+            $reponse->setTextr(Builder::blocker($reponse->getTextr())->filter());
+        }
+
         $form = $this->createForm(AjoutReponserType::class, $Reponser);
         $form->handleRequest($request);
         
@@ -315,6 +345,15 @@ class ReclamationController extends AbstractController
         $Listreclamations = $em->getRepository(Reclamation::class)->findAllDistinctWithResponses();
 
         $reclamationResponses = $em->getRepository(Reponser::class)->findBy(['idR' => $id]);
+
+        foreach ($Listreclamations as $reclamation) {
+            $reclamation->setTitrer(Builder::blocker($reclamation->getTitrer())->filter());
+            $reclamation->setContenu(Builder::blocker($reclamation->getContenu())->filter());
+        }
+
+        foreach ($reclamationResponses as $reponse) {
+            $reponse->setTextr(Builder::blocker($reponse->getTextr())->filter());
+        }
         $form = $this->createForm(AjoutReponserType::class, $Reponser);
         $form->handleRequest($request);
         
