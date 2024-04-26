@@ -14,6 +14,7 @@ return [
         '/User/reclamations' => [[['_route' => 'app_list_user_reclamations', '_controller' => 'App\\Controller\\ReclamationController::listUserReclamations'], null, null, null, false, false, null]],
         '/Admin/reclamations' => [[['_route' => 'app_list_reclamations', '_controller' => 'App\\Controller\\ReclamationController::listReclamations'], null, null, null, false, false, null]],
         '/Admin/reclamationsDESC' => [[['_route' => 'app_list_reclamationsDESC', '_controller' => 'App\\Controller\\ReclamationController::listReclamationsDESC'], null, null, null, false, false, null]],
+        '/search/reclamations' => [[['_route' => 'searchconv', '_controller' => 'App\\Controller\\ReclamationController::searchconv'], null, null, null, false, false, null]],
         '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
         '/_profiler/search' => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],

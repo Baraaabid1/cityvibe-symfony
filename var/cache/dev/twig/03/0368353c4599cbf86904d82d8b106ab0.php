@@ -72,7 +72,7 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
                
                 <div class=\"chat-search pl-3 pr-3\">
                   <div class=\"input-group\">
-                    <input type=\"text\" class=\"form-control\" placeholder=\"Search a conversation\">
+                    <input type=\"text\" class=\"form-control\" id=\"searchInput\" placeholder=\"Search a conversation\">
                     <div class=\"input-group-append prepend-white\">
                       <span class=\"input-group-text pl-2 pr-2\">
                         <i class=\"fs-17 las la-search drop-shadow\"></i>
@@ -82,7 +82,7 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
                 </div>
          
                 <div class=\"chat-user-panel\">
-                  <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\">
+                  <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\" id=\"reclamationsContainer\">
                     ";
         // line 21
         $context['_parent'] = $context;
@@ -366,10 +366,59 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
   });
  
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const reclamationsContainer = document.getElementById('reclamationsContainer');
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value.trim();
+
+            if (searchTerm !== '') {
+                // Send an AJAX request to the Symfony search endpoint
+                fetch(`/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Clear previous reclamations
+                        reclamationsContainer.innerHTML = '';
+
+                        // Display search results
+                        data.forEach(reclamation => {
+                            const reclamationItem = document.createElement('div');
+                            reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
+                            reclamationItem.innerHTML = `
+                                <div class=\"w-100\">
+                                    <div class=\"d-flex pl-0\">
+                                        <img class=\"rounded-circle shadow avatar-sm mr-3\" src=\"https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg\">
+                                        <div>
+                                            <p class=\"margin-auto fw-400 text-dark-75\">\${reclamation.idu}</p>
+                                            <div class=\"d-flex flex-row mt-1\">
+                                                <span>
+                                                    <div class=\"svg15 double-check\"></div>
+                                                </span>
+                                                <span class=\"message-shortcut margin-auto text-muted fs-13 ml-1 mr-4\">\${reclamation.titrer}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            reclamationsContainer.appendChild(reclamationItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching search results:', error);
+                    });
+            } else {
+                reclamationsContainer.innerHTML = '';
+            }
+        });
+    });
+</script>
+
   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>
   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js\"></script>
   <script src=\"";
-        // line 225
+        // line 274
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/test.js"), "html", null, true);
         echo "\"></script>
 
@@ -403,7 +452,7 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
      */
     public function getDebugInfo()
     {
-        return array (  373 => 225,  335 => 190,  327 => 185,  322 => 183,  314 => 177,  308 => 176,  300 => 171,  295 => 169,  292 => 168,  274 => 153,  251 => 133,  247 => 132,  239 => 127,  229 => 120,  223 => 116,  220 => 115,  216 => 114,  176 => 77,  162 => 65,  155 => 63,  143 => 56,  134 => 50,  123 => 41,  111 => 34,  102 => 28,  95 => 23,  92 => 22,  88 => 21,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  422 => 274,  335 => 190,  327 => 185,  322 => 183,  314 => 177,  308 => 176,  300 => 171,  295 => 169,  292 => 168,  274 => 153,  251 => 133,  247 => 132,  239 => 127,  229 => 120,  223 => 116,  220 => 115,  216 => 114,  176 => 77,  162 => 65,  155 => 63,  143 => 56,  134 => 50,  123 => 41,  111 => 34,  102 => 28,  95 => 23,  92 => 22,  88 => 21,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -417,7 +466,7 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
                
                 <div class=\"chat-search pl-3 pr-3\">
                   <div class=\"input-group\">
-                    <input type=\"text\" class=\"form-control\" placeholder=\"Search a conversation\">
+                    <input type=\"text\" class=\"form-control\" id=\"searchInput\" placeholder=\"Search a conversation\">
                     <div class=\"input-group-append prepend-white\">
                       <span class=\"input-group-text pl-2 pr-2\">
                         <i class=\"fs-17 las la-search drop-shadow\"></i>
@@ -427,7 +476,7 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
                 </div>
          
                 <div class=\"chat-user-panel\">
-                  <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\">
+                  <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\" id=\"reclamationsContainer\">
                     {% for lr in ListReclamations %}
                      {% if lr.idr == Reclamation.idr %}
                      <div class=\"chat-item active d-flex pl-3 pr-0 pt-3 pb-3\">
@@ -630,6 +679,55 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
   });
  
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const reclamationsContainer = document.getElementById('reclamationsContainer');
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value.trim();
+
+            if (searchTerm !== '') {
+                // Send an AJAX request to the Symfony search endpoint
+                fetch(`/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Clear previous reclamations
+                        reclamationsContainer.innerHTML = '';
+
+                        // Display search results
+                        data.forEach(reclamation => {
+                            const reclamationItem = document.createElement('div');
+                            reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
+                            reclamationItem.innerHTML = `
+                                <div class=\"w-100\">
+                                    <div class=\"d-flex pl-0\">
+                                        <img class=\"rounded-circle shadow avatar-sm mr-3\" src=\"https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg\">
+                                        <div>
+                                            <p class=\"margin-auto fw-400 text-dark-75\">\${reclamation.idu}</p>
+                                            <div class=\"d-flex flex-row mt-1\">
+                                                <span>
+                                                    <div class=\"svg15 double-check\"></div>
+                                                </span>
+                                                <span class=\"message-shortcut margin-auto text-muted fs-13 ml-1 mr-4\">\${reclamation.titrer}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            reclamationsContainer.appendChild(reclamationItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching search results:', error);
+                    });
+            } else {
+                reclamationsContainer.innerHTML = '';
+            }
+        });
+    });
+</script>
+
   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>
   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js\"></script>
   <script src=\"{{ asset ('js/test.js') }}\"></script>

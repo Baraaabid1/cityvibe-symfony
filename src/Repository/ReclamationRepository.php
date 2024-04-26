@@ -59,6 +59,14 @@ class ReclamationRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function findByTitle(string $title): array
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.titrer LIKE :titrer')
+            ->setParameter('titrer', '%' . $title . '%') 
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Reclamation[] Returns an array of Reclamation objects
 //     */

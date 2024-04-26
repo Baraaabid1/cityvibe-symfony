@@ -142,7 +142,6 @@ class ReclamationController extends AbstractController
     #[Route('/admin/reclamationpartype/{type}', name: 'app_list_reclamationspartype')]
     public function listReclamationspartype($type,ReclamationRepository $RecRepo): Response
     {
-
         $type =  urldecode($type);;
 
         $reclamations = $RecRepo->findAllByType($type);
@@ -231,28 +230,43 @@ class ReclamationController extends AbstractController
             ]);
         }}
 
-        
-    #[Route('/reponse/delete/{id}', name: 'app_delete_reponse')]
-    public function deleteReponse(ManagerRegistry $doctrine, $id): RedirectResponse
+
+        #[Route('/search/reclamations', name: 'searchconv')]
+        public function searchconv(Request $request , ReclamationRepository $RecRepo): JsonResponse
     {
-        $em = $doctrine->getManager();
+        $searchTerm = $request->query->get('title');
 
-        // Fetch the response to delete from the database
-        $rep = $em->getRepository(Reponser::class)->find($id);
-
-        if (!$rep) {
-            throw $this->createNotFoundException('Response not found');
-        }
-
-        $idR = $rep->getIdR();
-        $id=$idR->getIdR();
-        
-        $em->remove($rep);
-        $em->flush();
-
-        return $this->redirectToRoute('app_ajout_reponser', ['id' => $id]);
+        // Search for reclamations by title
+        $reclamations = $RecRepo->findByTitle($searchTerm);
+    
+        // Return the search results as JSON response
+        return $this->json($reclamations);
     }
 
+        
+        #[Route('/reponse/delete/{id}', name: 'app_delete_reponse')]
+        public function deleteReponse(ManagerRegistry $doctrine, $id): RedirectResponse
+        {
+            $em = $doctrine->getManager();
+        
+            // Fetch the response to delete from the database
+            $rep = $em->getRepository(Reponser::class)->find($id);
+        
+            if (!$rep) {
+                throw $this->createNotFoundException('Response not found');
+            }
+        
+            // Store the parent ID before deletion
+            $idR = $rep->getIdR();
+            $idrec = $idR->getIdR();
+            
+            $em->remove($rep);
+            $em->flush();
+        
+            // Redirect to the correct route with the correct parameter
+            return $this->redirectToRoute('app_ajout_reponser', ['id' => $idrec]);
+        }
+        
     #[Route('/responseuser/edit/{id}', name: 'app_update_response_user')]
     public function updateMessageuser($id, Request $request, ManagerRegistry $doctrine): Response
     {
@@ -338,6 +352,7 @@ class ReclamationController extends AbstractController
         }}
 
 
+        
     #[Route('/reponseA/delete/{id}', name: 'app_delete_reponseA')]
     public function deleteReponsea(ManagerRegistry $doctrine, $id): RedirectResponse
     {

@@ -72,7 +72,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                
                 <div class=\"chat-search pl-3 pr-3\">
                   <div class=\"input-group\">
-                    <input type=\"text\" class=\"form-control\" placeholder=\"Search a conversation\">
+                    <input type=\"text\" class=\"form-control\" id=\"searchInput\" placeholder=\"Search a conversation\">
                     <div class=\"input-group-append prepend-white\">
                       <span class=\"input-group-text pl-2 pr-2\">
                         <i class=\"fs-17 las la-search drop-shadow\"></i>
@@ -82,7 +82,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                 </div>
          
                 <div class=\"chat-user-panel\">
-                  <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\">
+                  <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\" id=\"reclamationsContainer\">
                     ";
         // line 21
         $context['_parent'] = $context;
@@ -234,75 +234,72 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                                     <div class=\"svg15 double-check\"></div>
                                 </div>
                             </div>
-                            <div class=\"message-arrow\">
-                                      <a data-delete-linku=\"";
+                           <div class=\"message-arrow\">
+                   <a data-delete-link=\"";
                 // line 131
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "idrr", [], "any", false, false, false, 131)]), "html", null, true);
-                echo "\"
-                                         data-update-route=\"";
-                // line 132
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_update_response_user", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "idrr", [], "any", false, false, false, 132)]), "html", null, true);
-                echo "\"
-                                       class=\"message-arrow\" data-toggle=\"modal\" data-target=\"#messageOptionsModaluser\">
-                               <i class=\"text-muted la la-angle-down fs-17\"></i>
-                                    </a>
-                            </div>
+                echo "\" data-update-route=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_update_response_user", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "idrr", [], "any", false, false, false, 131)]), "html", null, true);
+                echo "\" class=\"message-arrow\" data-toggle=\"modal\" data-target=\"#messageOptionsModaluser\"> <i class=\"text-muted la la-angle-down fs-17\"></i> </a>
                         </div>
                     </div>
                 </div>
                                                <!-- Modal -->
-                                    <div class=\"modal fade\" id=\"messageOptionsModaluser\"  tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"messageOptionsModaluserLabel\" aria-hidden=\"true\">
-                                <div class=\"modal-dialog\" role=\"document\">
-                                    <div class=\"modal-content\">
-                                        <div class=\"modal-header\">
-                                            <h5 class=\"modal-title\" id=\"messageOptionsModaluserLabel\">Votre message</h5>
-                                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
-                                                <span aria-hidden=\"true\">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class=\"modal-body\">
-                                                <p id=\"messageContent\"></p>
-
-                                            <form id=\"updateForm\" action=\"";
-                // line 153
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_update_response_user", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "idrr", [], "any", false, false, false, 153)]), "html", null, true);
+                                    <div class=\"modal fade\" id=\"messageOptionsModaluser\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"messageOptionsModaluserLabel\" aria-hidden=\"true\">
+    <div class=\"modal-dialog\" role=\"document\">
+        <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"messageOptionsModaluserLabel\">Votre message</h5>
+                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Fermer\">
+                    <span aria-hidden=\"true\">&times;</span>
+                </button>
+            </div>
+            <div class=\"modal-body\">
+                <form id=\"updateForm\" action=\"";
+                // line 146
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_update_response_user", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "idrr", [], "any", false, false, false, 146)]), "html", null, true);
                 echo "\" method=\"POST\" novalidate=\"novalidate\" autocomplete=\"off\">
-                                                <input type=\"text\" name=\"newValue\" id=\"updateInput\" class=\"form-control\" placeholder=\"Modifier votre message \">
-                                                <div class=\"modal-footer\">
-                                                    <a href=\"#\" id=\"deleteLinku\" class=\"btn btn-danger\">Supprimer</a>
-                                                    <button type=\"submit\" class=\"btn btn-danger\">Modifier</button>
-                                                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">fermer</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <input type=\"text\" name=\"newValue\" id=\"updateInput\" class=\"form-control\" placeholder=\"Modifier le message\">
+                    <div class=\"modal-footer\">
+                        <!-- Delete button with dynamically set href -->
+<a href=\"#\" id=\"deleteLinku\" class=\"btn btn-danger\" data-delete-link=\"";
+                // line 150
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "idrr", [], "any", false, false, false, 150)]), "html", null, true);
+                echo "\">Supprimer</a>                        <button type=\"submit\" class=\"btn btn-primary\">Modifier</button>
+                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Fermer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+
             ";
             } else {
-                // line 166
+                // line 161
                 echo "             <div class=\"left-chat-message fs-13 mb-2\">
                     <p class=\"mb-0 mr-3 pr-4\">";
-                // line 167
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "textr", [], "any", false, false, false, 167), "html", null, true);
+                // line 162
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "textr", [], "any", false, false, false, 162), "html", null, true);
                 echo "</p>
                     <div class=\"message-options\">
                         <div class=\"message-time\">";
-                // line 169
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "dateRepr", [], "any", false, false, false, 169), "H:i"), "html", null, true);
+                // line 164
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "dateRepr", [], "any", false, false, false, 164), "H:i"), "html", null, true);
                 echo "</div>
                         <div class=\"message-arrow\"><i class=\"text-muted la la-angle-down fs-17\"></i></div>
                     </div>
                 </div>
             ";
             }
-            // line 174
+            // line 169
             echo "        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamationResponse'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 175
+        // line 170
         echo "    </div>
 </div>
 
@@ -310,21 +307,21 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                     
                 <div class=\"chat-search pl-3 pr-3\">
                                  ";
-        // line 181
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 181, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate", "autocomplete" => "off"]]);
+        // line 176
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 176, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate", "autocomplete" => "off"]]);
         echo "
         <div class=\"input-group-append prepend-white\">
                 ";
-        // line 183
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 183, $this->source); })()), "textr", [], "any", false, false, false, 183), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Ecrire un message ..."]]);
+        // line 178
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 178, $this->source); })()), "textr", [], "any", false, false, false, 178), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "Ecrire un message ..."]]);
         echo "
             <button type=\"submit\" class=\"btn btn-primary btn-sm\" id=\"sendMessageBtn\">
                 <i class=\"fs-19 bi bi-cursor ml-2 mr-2\"></i>
             </button>
         </div>
                 ";
-        // line 188
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 188, $this->source); })()), 'form_end');
+        // line 183
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 183, $this->source); })()), 'form_end');
         echo "
     
     </div>
@@ -344,38 +341,75 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
 
 <!-- Your script -->
 <script>
+\$('#messageOptionsModaluser').on('show.bs.modal', function (event) {
+  var button = \$(event.relatedTarget); // Button that triggered the modal
+  var message = button.closest('.right-chat-message').find('.pr-2').text(); // Get the message content
+  var modal = \$(this);
+  modal.find('.modal-body #messageContent').text(message); // Populate the message content in the modal
 
-\$(document).ready(function() {
-    // Event listener for showing the modal when clicking on the message arrow
-    \$('[data-toggle=\"modal\"]').on('click', function(event) {
-        event.preventDefault();
-        var modalId = \$(this).data('target');
-        \$(modalId).modal('show');
-    });
+  // Pass the delete link dynamically
+  var deleteLinku = button.data('delete-linku');
+  modal.find('.modal-footer #deleteLinku').attr('href', deleteLinku);
 
-    // Event listener for dynamically created modals
-   \$(document).on('show.bs.modal', '.modal', function(event) {
-    var button = \$(event.relatedTarget); // Button that triggered the modal
-    var modal = \$(this);
-    
-    // Get the delete link and set it dynamically
-    var deleteLinku = button.data('delete-linku');
-    modal.find('.modal-footer #deleteLinku').attr('href', deleteLinku);
-
-    // Set the update route dynamically for the form action
-    var updateRoute = button.data('update-route');
-    modal.find('#updateForm').attr('action', updateRoute);
-});
-
-    // Event listener for closing the modal when \"fermer\" button is clicked
-    \$('.modal').on('click', '.btn-secondary', function(event) {
-        event.preventDefault();
-        \$(this).closest('.modal').modal('hide');
-    });
+  // Pass the update route dynamically
+  var updateRoute = button.data('update-route');
+  modal.find('#updateForm').attr('action', updateRoute);
 });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const reclamationsContainer = document.getElementById('reclamationsContainer');
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value.trim();
+
+            if (searchTerm !== '') {
+                // Send an AJAX request to the Symfony search endpoint
+                fetch(`/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Clear previous reclamations
+                        reclamationsContainer.innerHTML = '';
+
+                        // Display search results
+                        data.forEach(reclamation => {
+                            const reclamationItem = document.createElement('div');
+                            reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
+                            reclamationItem.innerHTML = `
+                                <div class=\"w-100\">
+                                    <div class=\"d-flex pl-0\">
+                                        <img class=\"rounded-circle shadow avatar-sm mr-3\" src=\"https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg\">
+                                        <div>
+                                            <p class=\"margin-auto fw-400 text-dark-75\">Administrateur</p>
+                                            <div class=\"d-flex flex-row mt-1\">
+                                                <span>
+                                                    <div class=\"svg15 double-check\"></div>
+                                                </span>
+                                                <span class=\"message-shortcut margin-auto text-muted fs-13 ml-1 mr-4\">\${reclamation.titrer}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            reclamationsContainer.appendChild(reclamationItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching search results:', error);
+                    });
+            } else {
+                reclamationsContainer.innerHTML = '';
+            }
+        });
+    });
+</script>
+
+
+  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>
+  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js\"></script>
   <script src=\"";
-        // line 237
+        // line 269
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/test.js"), "html", null, true);
         echo "\"></script>
 
@@ -409,7 +443,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  379 => 237,  327 => 188,  319 => 183,  314 => 181,  306 => 175,  300 => 174,  292 => 169,  287 => 167,  284 => 166,  268 => 153,  244 => 132,  240 => 131,  232 => 126,  222 => 119,  216 => 115,  213 => 114,  209 => 113,  169 => 76,  155 => 64,  148 => 62,  136 => 55,  120 => 41,  108 => 34,  95 => 23,  92 => 22,  88 => 21,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  413 => 269,  324 => 183,  316 => 178,  311 => 176,  303 => 170,  297 => 169,  289 => 164,  284 => 162,  281 => 161,  267 => 150,  260 => 146,  240 => 131,  232 => 126,  222 => 119,  216 => 115,  213 => 114,  209 => 113,  169 => 76,  155 => 64,  148 => 62,  136 => 55,  120 => 41,  108 => 34,  95 => 23,  92 => 22,  88 => 21,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -423,7 +457,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                
                 <div class=\"chat-search pl-3 pr-3\">
                   <div class=\"input-group\">
-                    <input type=\"text\" class=\"form-control\" placeholder=\"Search a conversation\">
+                    <input type=\"text\" class=\"form-control\" id=\"searchInput\" placeholder=\"Search a conversation\">
                     <div class=\"input-group-append prepend-white\">
                       <span class=\"input-group-text pl-2 pr-2\">
                         <i class=\"fs-17 las la-search drop-shadow\"></i>
@@ -433,7 +467,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                 </div>
          
                 <div class=\"chat-user-panel\">
-                  <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\">
+                  <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\" id=\"reclamationsContainer\">
                     {% for lr in ListReclamations %}
                      {% if lr.idr == Reclamation.idr %}
                      <div class=\"chat-item active d-flex pl-3 pr-0 pt-3 pb-3\">
@@ -543,41 +577,36 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                                     <div class=\"svg15 double-check\"></div>
                                 </div>
                             </div>
-                            <div class=\"message-arrow\">
-                                      <a data-delete-linku=\"{{ path('app_delete_reponse', {'id': reclamationResponse.idrr}) }}\"
-                                         data-update-route=\"{{ path('app_update_response_user', {'id': reclamationResponse.idrr}) }}\"
-                                       class=\"message-arrow\" data-toggle=\"modal\" data-target=\"#messageOptionsModaluser\">
-                               <i class=\"text-muted la la-angle-down fs-17\"></i>
-                                    </a>
-                            </div>
+                           <div class=\"message-arrow\">
+                   <a data-delete-link=\"{{ path('app_delete_reponse', {'id': reclamationResponse.idrr}) }}\" data-update-route=\"{{ path('app_update_response_user', {'id': reclamationResponse.idrr}) }}\" class=\"message-arrow\" data-toggle=\"modal\" data-target=\"#messageOptionsModaluser\"> <i class=\"text-muted la la-angle-down fs-17\"></i> </a>
                         </div>
                     </div>
                 </div>
                                                <!-- Modal -->
-                                    <div class=\"modal fade\" id=\"messageOptionsModaluser\"  tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"messageOptionsModaluserLabel\" aria-hidden=\"true\">
-                                <div class=\"modal-dialog\" role=\"document\">
-                                    <div class=\"modal-content\">
-                                        <div class=\"modal-header\">
-                                            <h5 class=\"modal-title\" id=\"messageOptionsModaluserLabel\">Votre message</h5>
-                                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">
-                                                <span aria-hidden=\"true\">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class=\"modal-body\">
-                                                <p id=\"messageContent\"></p>
+                                    <div class=\"modal fade\" id=\"messageOptionsModaluser\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"messageOptionsModaluserLabel\" aria-hidden=\"true\">
+    <div class=\"modal-dialog\" role=\"document\">
+        <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <h5 class=\"modal-title\" id=\"messageOptionsModaluserLabel\">Votre message</h5>
+                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Fermer\">
+                    <span aria-hidden=\"true\">&times;</span>
+                </button>
+            </div>
+            <div class=\"modal-body\">
+                <form id=\"updateForm\" action=\"{{ path('app_update_response_user', {'id': reclamationResponse.idrr}) }}\" method=\"POST\" novalidate=\"novalidate\" autocomplete=\"off\">
+                    <input type=\"text\" name=\"newValue\" id=\"updateInput\" class=\"form-control\" placeholder=\"Modifier le message\">
+                    <div class=\"modal-footer\">
+                        <!-- Delete button with dynamically set href -->
+<a href=\"#\" id=\"deleteLinku\" class=\"btn btn-danger\" data-delete-link=\"{{ path('app_delete_reponse', {'id': reclamationResponse.idrr}) }}\">Supprimer</a>                        <button type=\"submit\" class=\"btn btn-primary\">Modifier</button>
+                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Fermer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
 
-                                            <form id=\"updateForm\" action=\"{{ path('app_update_response_user', {'id': reclamationResponse.idrr}) }}\" method=\"POST\" novalidate=\"novalidate\" autocomplete=\"off\">
-                                                <input type=\"text\" name=\"newValue\" id=\"updateInput\" class=\"form-control\" placeholder=\"Modifier votre message \">
-                                                <div class=\"modal-footer\">
-                                                    <a href=\"#\" id=\"deleteLinku\" class=\"btn btn-danger\">Supprimer</a>
-                                                    <button type=\"submit\" class=\"btn btn-danger\">Modifier</button>
-                                                    <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">fermer</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
             {% else %}
              <div class=\"left-chat-message fs-13 mb-2\">
                     <p class=\"mb-0 mr-3 pr-4\">{{ reclamationResponse.textr }}</p>
@@ -620,36 +649,73 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
 
 <!-- Your script -->
 <script>
+\$('#messageOptionsModaluser').on('show.bs.modal', function (event) {
+  var button = \$(event.relatedTarget); // Button that triggered the modal
+  var message = button.closest('.right-chat-message').find('.pr-2').text(); // Get the message content
+  var modal = \$(this);
+  modal.find('.modal-body #messageContent').text(message); // Populate the message content in the modal
 
-\$(document).ready(function() {
-    // Event listener for showing the modal when clicking on the message arrow
-    \$('[data-toggle=\"modal\"]').on('click', function(event) {
-        event.preventDefault();
-        var modalId = \$(this).data('target');
-        \$(modalId).modal('show');
-    });
+  // Pass the delete link dynamically
+  var deleteLinku = button.data('delete-linku');
+  modal.find('.modal-footer #deleteLinku').attr('href', deleteLinku);
 
-    // Event listener for dynamically created modals
-   \$(document).on('show.bs.modal', '.modal', function(event) {
-    var button = \$(event.relatedTarget); // Button that triggered the modal
-    var modal = \$(this);
-    
-    // Get the delete link and set it dynamically
-    var deleteLinku = button.data('delete-linku');
-    modal.find('.modal-footer #deleteLinku').attr('href', deleteLinku);
-
-    // Set the update route dynamically for the form action
-    var updateRoute = button.data('update-route');
-    modal.find('#updateForm').attr('action', updateRoute);
-});
-
-    // Event listener for closing the modal when \"fermer\" button is clicked
-    \$('.modal').on('click', '.btn-secondary', function(event) {
-        event.preventDefault();
-        \$(this).closest('.modal').modal('hide');
-    });
+  // Pass the update route dynamically
+  var updateRoute = button.data('update-route');
+  modal.find('#updateForm').attr('action', updateRoute);
 });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const reclamationsContainer = document.getElementById('reclamationsContainer');
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value.trim();
+
+            if (searchTerm !== '') {
+                // Send an AJAX request to the Symfony search endpoint
+                fetch(`/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Clear previous reclamations
+                        reclamationsContainer.innerHTML = '';
+
+                        // Display search results
+                        data.forEach(reclamation => {
+                            const reclamationItem = document.createElement('div');
+                            reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
+                            reclamationItem.innerHTML = `
+                                <div class=\"w-100\">
+                                    <div class=\"d-flex pl-0\">
+                                        <img class=\"rounded-circle shadow avatar-sm mr-3\" src=\"https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg\">
+                                        <div>
+                                            <p class=\"margin-auto fw-400 text-dark-75\">Administrateur</p>
+                                            <div class=\"d-flex flex-row mt-1\">
+                                                <span>
+                                                    <div class=\"svg15 double-check\"></div>
+                                                </span>
+                                                <span class=\"message-shortcut margin-auto text-muted fs-13 ml-1 mr-4\">\${reclamation.titrer}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            reclamationsContainer.appendChild(reclamationItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching search results:', error);
+                    });
+            } else {
+                reclamationsContainer.innerHTML = '';
+            }
+        });
+    });
+</script>
+
+
+  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>
+  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js\"></script>
   <script src=\"{{ asset ('js/test.js') }}\"></script>
 
     {% endblock %}", "reclamation/testreponse.html.twig", "C:\\Users\\baraa\\OneDrive\\Desktop\\Workshops Symfony\\CRUD\\SymfonyPIDEV\\templates\\reclamation\\testreponse.html.twig");

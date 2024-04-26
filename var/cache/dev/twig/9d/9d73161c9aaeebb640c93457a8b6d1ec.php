@@ -58,21 +58,21 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
         // line 8
         echo "        ";
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 36
+        // line 38
         echo "
         ";
-        // line 37
+        // line 39
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 49
+        // line 54
         echo "    </head>
     <body>
     ";
-        // line 51
+        // line 56
         $this->displayBlock('header', $context, $blocks);
-        // line 127
+        // line 132
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 128
+        // line 133
         echo "        
     </body>
 </html>
@@ -162,6 +162,8 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
 <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\"/>
 <link rel=\"stylesheet\" href=\"https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css\"/>
 <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css\"/>
+
+
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -171,7 +173,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
 
     }
 
-    // line 37
+    // line 39
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -181,38 +183,41 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 38
+        // line 40
         echo "              <!-- Vendor JS Files -->
                 <script src=\"";
-        // line 39
+        // line 41
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 40
+        // line 42
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 41
+        // line 43
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/aos/aos.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 42
+        // line 44
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/glightbox/js/glightbox.min.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 43
+        // line 45
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/purecounter/purecounter_vanilla.js"), "html", null, true);
         echo "\"></script>
                 <script src=\"";
-        // line 44
+        // line 46
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/swiper/swiper-bundle.min.js"), "html", null, true);
         echo "\"></script>
 
                 <!-- Main JS File -->
                 <script src=src=\"";
-        // line 47
+        // line 49
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
+                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js\"></script>
+<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -222,7 +227,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
 
     }
 
-    // line 51
+    // line 56
     public function block_header($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -232,7 +237,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
 
-        // line 52
+        // line 57
         echo "    <header id=\"header\" class=\"header d-flex align-items-center sticky-top\">
     <div class=\"container-fluid container-xl position-relative d-flex align-items-center\">
 
@@ -247,7 +252,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
       <nav id=\"navmenu\" class=\"navmenu\">
         <ul>
           <li><a href=\"";
-        // line 65
+        // line 70
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_main");
         echo "\">Home</a></li>
           <li><a href=\"about.html\">About</a></li>
@@ -302,7 +307,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
             </ul>
           </li>
           <li><a href=\"";
-        // line 117
+        // line 122
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ajout_reclamation");
         echo "\">Reclamation</a></li>
         </ul>
@@ -322,7 +327,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
 
     }
 
-    // line 127
+    // line 132
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -353,7 +358,7 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  326 => 127,  306 => 117,  251 => 65,  236 => 52,  226 => 51,  214 => 47,  208 => 44,  204 => 43,  200 => 42,  196 => 41,  192 => 40,  188 => 39,  185 => 38,  175 => 37,  158 => 29,  154 => 28,  148 => 25,  144 => 24,  140 => 23,  136 => 22,  132 => 21,  118 => 9,  108 => 8,  89 => 5,  76 => 128,  73 => 127,  71 => 51,  67 => 49,  65 => 37,  62 => 36,  59 => 8,  54 => 5,  48 => 1,);
+        return array (  331 => 132,  311 => 122,  256 => 70,  241 => 57,  231 => 56,  216 => 49,  210 => 46,  206 => 45,  202 => 44,  198 => 43,  194 => 42,  190 => 41,  187 => 40,  177 => 39,  158 => 29,  154 => 28,  148 => 25,  144 => 24,  140 => 23,  136 => 22,  132 => 21,  118 => 9,  108 => 8,  89 => 5,  76 => 133,  73 => 132,  71 => 56,  67 => 54,  65 => 39,  62 => 38,  59 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -392,6 +397,8 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
 <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\"/>
 <link rel=\"stylesheet\" href=\"https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css\"/>
 <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css\"/>
+
+
         {% endblock %}
 
         {% block javascripts %}
@@ -405,6 +412,9 @@ class __TwigTemplate_0679a7e320a55c4cabca169aca36bb87 extends Template
 
                 <!-- Main JS File -->
                 <script src=src=\"{{ asset ('assets/js/main.js')}}\"></script>
+                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js\"></script>
+<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>
         {% endblock %}
     </head>
     <body>

@@ -14,6 +14,7 @@ return [
     'app_list_reclamationspartype' => [['type'], ['_controller' => 'App\\Controller\\ReclamationController::listReclamationspartype'], [], [['variable', '/', '[^/]++', 'type', true], ['text', '/admin/reclamationpartype']], [], [], []],
     'app_delete_reclamation_admin' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::deleteReclamationAdmin'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/reclamation/Adelete']], [], [], []],
     'app_ajout_reponser' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::indexRepnse'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/ajout/reponser']], [], [], []],
+    'searchconv' => [[], ['_controller' => 'App\\Controller\\ReclamationController::searchconv'], [], [['text', '/search/reclamations']], [], [], []],
     'app_delete_reponse' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::deleteReponse'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/reponse/delete']], [], [], []],
     'app_update_response_user' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::updateMessageuser'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/responseuser/edit']], [], [], []],
     'app_mainAdmin_reponse' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::data'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/reponse/Admin']], [], [], []],
