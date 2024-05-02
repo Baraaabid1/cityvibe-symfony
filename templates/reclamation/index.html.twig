@@ -86,11 +86,11 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
+                         <div class="col-md-12">
                         <div class="form-group">
                             {{ form_label(form.apropo, "À propos") }}
                             {{ form_errors(form.apropo) }}
-                            {{ form_widget(form.apropo, {'attr': {'class': 'form-control', 'placeholder': 'À propos'}}) }}
+                            {{ form_widget(form.apropo, {'attr': {'class': 'form-control', 'placeholder': 'À propos', 'id': 'apropoField'}}) }}
                         </div>
                     </div>
 
@@ -121,6 +121,10 @@
 
 <!-- Preloader -->
 <div id="preloader"></div>
+
+
+
+</script>
 
 <!-- Vendor JS Files -->
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

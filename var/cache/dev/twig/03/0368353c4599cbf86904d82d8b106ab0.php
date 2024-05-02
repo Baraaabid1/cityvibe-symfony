@@ -90,7 +90,7 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
         foreach ($context['_seq'] as $context["_key"] => $context["lr"]) {
             // line 22
             echo "                     ";
-            if ((twig_get_attribute($this->env, $this->source, $context["lr"], "idr", [], "any", false, false, false, 22) == twig_get_attribute($this->env, $this->source, (isset($context["Reclamation"]) || array_key_exists("Reclamation", $context) ? $context["Reclamation"] : (function () { throw new RuntimeError('Variable "Reclamation" does not exist.', 22, $this->source); })()), "idr", [], "any", false, false, false, 22))) {
+            if ((twig_get_attribute($this->env, $this->source, $context["lr"], "idr", [], "any", false, false, false, 22) == twig_get_attribute($this->env, $this->source, (isset($context["Rec"]) || array_key_exists("Rec", $context) ? $context["Rec"] : (function () { throw new RuntimeError('Variable "Rec" does not exist.', 22, $this->source); })()), "idr", [], "any", false, false, false, 22))) {
                 // line 23
                 echo "                     <div class=\"chat-item active d-flex pl-3 pr-0 pt-3 pb-3\">
                       <div class=\"w-100\">
@@ -173,10 +173,10 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
                         <a href=\"!#\">
                           <p class=\"fw-400 mb-0 text-dark-75\">";
         // line 77
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["Reclamation"]) || array_key_exists("Reclamation", $context) ? $context["Reclamation"] : (function () { throw new RuntimeError('Variable "Reclamation" does not exist.', 77, $this->source); })()), "titrer", [], "any", false, false, false, 77), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["Rec"]) || array_key_exists("Rec", $context) ? $context["Rec"] : (function () { throw new RuntimeError('Variable "Rec" does not exist.', 77, $this->source); })()), "titrer", [], "any", false, false, false, 77), "html", null, true);
         echo "</p>
                         </a>
-                        <p class=\"sub-caption text-muted text-small mb-0\"><i class=\"la la-clock mr-1\"></i>last seen today at 09:15 PM</p>
+                        <p class=\"sub-caption text-muted text-small mb-0\"><i class=\"la la-clock mr-1\"></i></p>
                       </div>
                     </div>
                     <div class=\"flex-shrink-0 margin-auto\">
@@ -478,7 +478,7 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
                 <div class=\"chat-user-panel\">
                   <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\" id=\"reclamationsContainer\">
                     {% for lr in ListReclamations %}
-                     {% if lr.idr == Reclamation.idr %}
+                     {% if lr.idr == Rec.idr %}
                      <div class=\"chat-item active d-flex pl-3 pr-0 pt-3 pb-3\">
                       <div class=\"w-100\">
                         <div class=\"d-flex pl-0\">
@@ -533,9 +533,9 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
                       <img class=\"rounded-circle shadow avatar-sm mr-3 chat-profile-picture\" src=\"https://user-images.githubusercontent.com/35243461/168796877-f6c8819a-5d6e-4b2a-bd56-04963639239b.jpg\">
                       <div class=\"mr-3\">
                         <a href=\"!#\">
-                          <p class=\"fw-400 mb-0 text-dark-75\">{{ Reclamation.titrer }}</p>
+                          <p class=\"fw-400 mb-0 text-dark-75\">{{ Rec.titrer }}</p>
                         </a>
-                        <p class=\"sub-caption text-muted text-small mb-0\"><i class=\"la la-clock mr-1\"></i>last seen today at 09:15 PM</p>
+                        <p class=\"sub-caption text-muted text-small mb-0\"><i class=\"la la-clock mr-1\"></i></p>
                       </div>
                     </div>
                     <div class=\"flex-shrink-0 margin-auto\">

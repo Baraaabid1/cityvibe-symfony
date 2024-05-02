@@ -19,7 +19,7 @@
                 <div class="chat-user-panel">
                   <div class="pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll" id="reclamationsContainer">
                     {% for lr in ListReclamations %}
-                     {% if lr.idr == Reclamation.idr %}
+                     {% if lr.idr == Rec.idr %}
                      <div class="chat-item active d-flex pl-3 pr-0 pt-3 pb-3">
                       <div class="w-100">
                         <div class="d-flex pl-0">
@@ -74,9 +74,9 @@
                       <img class="rounded-circle shadow avatar-sm mr-3 chat-profile-picture" src="https://user-images.githubusercontent.com/35243461/168796877-f6c8819a-5d6e-4b2a-bd56-04963639239b.jpg">
                       <div class="mr-3">
                         <a href="!#">
-                          <p class="fw-400 mb-0 text-dark-75">{{ Reclamation.titrer }}</p>
+                          <p class="fw-400 mb-0 text-dark-75">{{ Rec.titrer }}</p>
                         </a>
-                        <p class="sub-caption text-muted text-small mb-0"><i class="la la-clock mr-1"></i>last seen today at 09:15 PM</p>
+                        <p class="sub-caption text-muted text-small mb-0"><i class="la la-clock mr-1"></i></p>
                       </div>
                     </div>
                     <div class="flex-shrink-0 margin-auto">

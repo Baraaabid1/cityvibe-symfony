@@ -111,7 +111,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
             <i class=\"now-ui-icons arrows-1_minimal-up\"></i>
         </a>
     </div>
-
+    
     <div style=\"display: inline-block; margin-left: 10px;\">
         <a class=\"nav-link\" href=\"";
         // line 48
@@ -120,6 +120,15 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
             <i class=\"now-ui-icons arrows-1_minimal-down\"></i>
         </a>
     </div>
+    
+    <div style=\"display: inline-block; margin-left: 10px;\">
+            <a class=\"nav-link\" href=\"";
+        // line 54
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("recstat");
+        echo "\">
+                <i> consulter statistiques</i>
+            </a>
+        </div>
 
     <div style=\"display: inline-block;\">
         <div style=\"display: inline-block; margin-right: 10px;\">
@@ -130,12 +139,12 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                     </p>
                 </a>
                 <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\" style=\"position: absolute;\">
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"ReclamationUrgente\">Réclamation Urgente</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"BugsOuPlantages\">Bugs ou plantages</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"ContenuInapproprie\">Contenu inapproprié</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"InformationsIncorrectes\">Informations incorrectes</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"ProblemesDeSecurite\">Problèmes de sécurité</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"SuggestionsDamelioration\">Suggestions d'amélioration</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Réclamation Urgente\">Réclamation Urgente</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Bugs ou plantages\">Bugs ou plantages</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Contenu inapproprié\">Contenu inapproprié</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Informations incorrectes\">Informations incorrectes</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Problèmes de sécurité\">Problèmes de sécurité</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Suggestions d'amélioration\">Suggestions d'amélioration</a>
                 </div>
             </div>
         </div>
@@ -175,41 +184,58 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
   </thead>
  <tbody id=\"reclamationsTable\">
     ";
-        // line 106
+        // line 112
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 106, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 112, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["reclamation"]) {
-            // line 107
+            // line 113
             echo "        <tr>
             <td>";
-            // line 108
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "titrer", [], "any", false, false, false, 108), "html", null, true);
-            echo "</td>
-            <td>";
-            // line 109
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "temp", [], "any", false, false, false, 109), "Y-m-d H:i:s"), "html", null, true);
-            echo "</td>
-            <td>";
-            // line 110
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "typer", [], "any", false, false, false, 110), "html", null, true);
-            echo "</td>
-            <td>";
-            // line 111
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "Apropo", [], "any", false, false, false, 111), "html", null, true);
-            echo "</td>
-            <td>";
-            // line 112
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "contenu", [], "any", false, false, false, 112), "html", null, true);
-            echo "</td>
-            <td>
-                <a href=\"";
             // line 114
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_reclamation_admin", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 114)]), "html", null, true);
-            echo "\">Supprimer</a>
-                <a href=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "titrer", [], "any", false, false, false, 114), "html", null, true);
+            echo "</td>
+            <td>";
             // line 115
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mainAdmin_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 115)]), "html", null, true);
-            echo "\">Repondre</a>
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "temp", [], "any", false, false, false, 115), "Y-m-d H:i:s"), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 116
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "typer", [], "any", false, false, false, 116), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 117
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "Apropo", [], "any", false, false, false, 117), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 118
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "contenu", [], "any", false, false, false, 118), "html", null, true);
+            echo "</td>
+            <td style=\"display: flex; justify-content: center;\">
+                <a href=\"";
+            // line 120
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_reclamation_admin", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 120)]), "html", null, true);
+            echo "\">
+                                         <i class=\"now-ui-icons ui-1_simple-remove\"></i>
+
+                </a>
+                    <span style=\"margin: 0 10px;\">|</span> <!-- Spacer -->
+
+                <a href=\"";
+            // line 126
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mainAdmin_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 126)]), "html", null, true);
+            echo "\">
+                  <i class=\"now-ui-icons ui-1_send\"> </i>
+
+                </a>
+                    <span style=\"margin: 0 10px;\">|</span> <!-- Spacer -->
+
+                <a href=\"";
+            // line 132
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("saveReclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 132)]), "html", null, true);
+            echo "\">
+                          <i class=\"now-ui-icons arrows-1_cloud-download-93\"></i>
+                </a>
+
             </td>
         </tr>
     ";
@@ -217,7 +243,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 119
+        // line 139
         echo "</tbody>
 </table>
 
@@ -241,40 +267,110 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
   <script src=\"../assets/demo/demo.js\"></script>
 
 <script>
-    // Add event listener to dropdown items
-    document.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', event => {
-            // Get the selected type
-            const type = event.target.getAttribute('data-type');
-            // Construct the URL with the selected type
-            const url = `/admin/reclamationpartype/\${type}`;
-            // Redirect to the URL
-            window.location.href = url;
+  document.addEventListener(\"DOMContentLoaded\", function() {
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            var filterType = this.getAttribute('data-type');
+            filterReclamations(filterType);
         });
     });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const tableRows = document.querySelectorAll('#reclamationsTable tr');
 
-        searchInput.addEventListener('input', function () {
-            const searchTerm = this.value.trim().toLowerCase();
-
-            tableRows.forEach(row => {
-                const titleCell = row.querySelector('td:first-child');
-                if (titleCell) {
-                    const titleText = titleCell.textContent.trim().toLowerCase();
-                    if (titleText.includes(searchTerm)) {
-                        row.style.display = ''; 
-                    } else {
-                        row.style.display = 'none'; 
-                    }
+    function filterReclamations(filterType) {
+        // AJAX request
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/filter-reclamations', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Handle successful response
+                    var reclamations = JSON.parse(xhr.responseText);
+                    updateTable(reclamations);
+                } else {
+                    // Handle error
+                    console.error('Error:', xhr.statusText);
                 }
-            });
+            }
+        };
+        xhr.send('filter_type=' + encodeURIComponent(filterType));
+    }
+
+    function updateTable(reclamations) {
+        var tableBody = document.getElementById('reclamationsTable');
+        tableBody.innerHTML = ''; // Clear existing table rows
+
+        reclamations.forEach(function(reclamation) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<td>' + reclamation.titrer + '</td>' +
+                            '<td>' + reclamation.temp + '</td>' +
+                            '<td>' + reclamation.typer + '</td>' +
+                            '<td>' + reclamation.Apropo + '</td>' +
+                            '<td>' + reclamation.contenu + '</td>' +
+                            '<td>' +
+                                '<a href=\"/reclamation/Adelete/\${reclamation.idr}\">Supprimer</a>' +
+                                '<a href=\"/reponse/Admin/\${reclamation.idr}\">Repondre</a>' +
+                                '<a href=\"/admin/savereclamation/\${reclamation.idr}\">save</a>' +
+                            '</td>';
+
+            tableBody.appendChild(row);
         });
-    });
+    }
+});
+
+
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const reclamationsTable = document.getElementById('reclamationsTable');
+
+    searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.trim();
+
+        if (searchTerm !== '') {
+            // Send an AJAX request to the Symfony search endpoint
+            fetch(`/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear previous table rows
+                    reclamationsTable.innerHTML = '';
+
+                    // Display search results
+                    data.forEach(reclamation => {
+                        const row = document.createElement('tr');
+
+                        row.innerHTML = `
+                            <td>\${reclamation.titrer}</td>
+                            <td>\${reclamation.temp}</td>
+                            <td>\${reclamation.typer}</td>
+                            <td>\${reclamation.Apropo}</td>
+                            <td>\${reclamation.contenu}</td>
+                            <td>
+                                   <a href=\"/reclamation/Adelete/\${reclamation.idr}\">Supprimer</a>
+                                  <a href=\"/reponse/Admin/\${reclamation.idr}\">Repondre</a>
+                                  <a href=\"/admin/savereclamation/\${reclamation.idr}\">save</a>
+                            </td>
+                        `;
+
+                        // Append the row to the table body
+                        reclamationsTable.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        } else {
+            // If search term is empty, show all reclamations (you might need to fetch all reclamations from the server here)
+            // For now, let's keep it empty
+        }
+    });
+});
+
+</script>
+
+
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -305,7 +401,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
      */
     public function getDebugInfo()
     {
-        return array (  221 => 119,  211 => 115,  207 => 114,  202 => 112,  198 => 111,  194 => 110,  190 => 109,  186 => 108,  183 => 107,  179 => 106,  118 => 48,  109 => 42,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  247 => 139,  234 => 132,  225 => 126,  216 => 120,  211 => 118,  207 => 117,  203 => 116,  199 => 115,  195 => 114,  192 => 113,  188 => 112,  127 => 54,  118 => 48,  109 => 42,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -355,12 +451,18 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
             <i class=\"now-ui-icons arrows-1_minimal-up\"></i>
         </a>
     </div>
-
+    
     <div style=\"display: inline-block; margin-left: 10px;\">
         <a class=\"nav-link\" href=\"{{ path('app_list_reclamations') }}\">
             <i class=\"now-ui-icons arrows-1_minimal-down\"></i>
         </a>
     </div>
+    
+    <div style=\"display: inline-block; margin-left: 10px;\">
+            <a class=\"nav-link\" href=\"{{ path('recstat') }}\">
+                <i> consulter statistiques</i>
+            </a>
+        </div>
 
     <div style=\"display: inline-block;\">
         <div style=\"display: inline-block; margin-right: 10px;\">
@@ -371,12 +473,12 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                     </p>
                 </a>
                 <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdownMenuLink\" style=\"position: absolute;\">
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"ReclamationUrgente\">Réclamation Urgente</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"BugsOuPlantages\">Bugs ou plantages</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"ContenuInapproprie\">Contenu inapproprié</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"InformationsIncorrectes\">Informations incorrectes</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"ProblemesDeSecurite\">Problèmes de sécurité</a>
-                    <a class=\"dropdown-item\" href=\"#\" data-type=\"SuggestionsDamelioration\">Suggestions d'amélioration</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Réclamation Urgente\">Réclamation Urgente</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Bugs ou plantages\">Bugs ou plantages</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Contenu inapproprié\">Contenu inapproprié</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Informations incorrectes\">Informations incorrectes</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Problèmes de sécurité\">Problèmes de sécurité</a>
+                    <a class=\"dropdown-item\" href=\"#\" data-type=\"Suggestions d'amélioration\">Suggestions d'amélioration</a>
                 </div>
             </div>
         </div>
@@ -422,9 +524,23 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
             <td>{{ reclamation.typer }}</td>
             <td>{{ reclamation.Apropo }}</td>
             <td>{{ reclamation.contenu }}</td>
-            <td>
-                <a href=\"{{ path('app_delete_reclamation_admin', {'id': reclamation.idr}) }}\">Supprimer</a>
-                <a href=\"{{ path('app_mainAdmin_reponse', {'id': reclamation.idr}) }}\">Repondre</a>
+            <td style=\"display: flex; justify-content: center;\">
+                <a href=\"{{ path('app_delete_reclamation_admin', {'id': reclamation.idr}) }}\">
+                                         <i class=\"now-ui-icons ui-1_simple-remove\"></i>
+
+                </a>
+                    <span style=\"margin: 0 10px;\">|</span> <!-- Spacer -->
+
+                <a href=\"{{ path('app_mainAdmin_reponse', {'id': reclamation.idr}) }}\">
+                  <i class=\"now-ui-icons ui-1_send\"> </i>
+
+                </a>
+                    <span style=\"margin: 0 10px;\">|</span> <!-- Spacer -->
+
+                <a href=\"{{ path('saveReclamation', {'id': reclamation.idr}) }}\">
+                          <i class=\"now-ui-icons arrows-1_cloud-download-93\"></i>
+                </a>
+
             </td>
         </tr>
     {% endfor %}
@@ -451,40 +567,110 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
   <script src=\"../assets/demo/demo.js\"></script>
 
 <script>
-    // Add event listener to dropdown items
-    document.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', event => {
-            // Get the selected type
-            const type = event.target.getAttribute('data-type');
-            // Construct the URL with the selected type
-            const url = `/admin/reclamationpartype/\${type}`;
-            // Redirect to the URL
-            window.location.href = url;
+  document.addEventListener(\"DOMContentLoaded\", function() {
+    var dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            var filterType = this.getAttribute('data-type');
+            filterReclamations(filterType);
         });
     });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const tableRows = document.querySelectorAll('#reclamationsTable tr');
 
-        searchInput.addEventListener('input', function () {
-            const searchTerm = this.value.trim().toLowerCase();
-
-            tableRows.forEach(row => {
-                const titleCell = row.querySelector('td:first-child');
-                if (titleCell) {
-                    const titleText = titleCell.textContent.trim().toLowerCase();
-                    if (titleText.includes(searchTerm)) {
-                        row.style.display = ''; 
-                    } else {
-                        row.style.display = 'none'; 
-                    }
+    function filterReclamations(filterType) {
+        // AJAX request
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/filter-reclamations', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Handle successful response
+                    var reclamations = JSON.parse(xhr.responseText);
+                    updateTable(reclamations);
+                } else {
+                    // Handle error
+                    console.error('Error:', xhr.statusText);
                 }
-            });
+            }
+        };
+        xhr.send('filter_type=' + encodeURIComponent(filterType));
+    }
+
+    function updateTable(reclamations) {
+        var tableBody = document.getElementById('reclamationsTable');
+        tableBody.innerHTML = ''; // Clear existing table rows
+
+        reclamations.forEach(function(reclamation) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<td>' + reclamation.titrer + '</td>' +
+                            '<td>' + reclamation.temp + '</td>' +
+                            '<td>' + reclamation.typer + '</td>' +
+                            '<td>' + reclamation.Apropo + '</td>' +
+                            '<td>' + reclamation.contenu + '</td>' +
+                            '<td>' +
+                                '<a href=\"/reclamation/Adelete/\${reclamation.idr}\">Supprimer</a>' +
+                                '<a href=\"/reponse/Admin/\${reclamation.idr}\">Repondre</a>' +
+                                '<a href=\"/admin/savereclamation/\${reclamation.idr}\">save</a>' +
+                            '</td>';
+
+            tableBody.appendChild(row);
         });
-    });
+    }
+});
+
+
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const reclamationsTable = document.getElementById('reclamationsTable');
+
+    searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.trim();
+
+        if (searchTerm !== '') {
+            // Send an AJAX request to the Symfony search endpoint
+            fetch(`/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear previous table rows
+                    reclamationsTable.innerHTML = '';
+
+                    // Display search results
+                    data.forEach(reclamation => {
+                        const row = document.createElement('tr');
+
+                        row.innerHTML = `
+                            <td>\${reclamation.titrer}</td>
+                            <td>\${reclamation.temp}</td>
+                            <td>\${reclamation.typer}</td>
+                            <td>\${reclamation.Apropo}</td>
+                            <td>\${reclamation.contenu}</td>
+                            <td>
+                                   <a href=\"/reclamation/Adelete/\${reclamation.idr}\">Supprimer</a>
+                                  <a href=\"/reponse/Admin/\${reclamation.idr}\">Repondre</a>
+                                  <a href=\"/admin/savereclamation/\${reclamation.idr}\">save</a>
+                            </td>
+                        `;
+
+                        // Append the row to the table body
+                        reclamationsTable.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        } else {
+            // If search term is empty, show all reclamations (you might need to fetch all reclamations from the server here)
+            // For now, let's keep it empty
+        }
+    });
+});
+
+</script>
+
+
 {% endblock %}", "reclamation/list_reclamations.html.twig", "C:\\Users\\baraa\\OneDrive\\Desktop\\Workshops Symfony\\CRUD\\SymfonyPIDEV\\templates\\reclamation\\list_reclamations.html.twig");
     }
 }

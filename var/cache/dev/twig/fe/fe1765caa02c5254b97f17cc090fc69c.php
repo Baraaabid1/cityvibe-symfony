@@ -206,7 +206,7 @@ class __TwigTemplate_224d598058e2b3e858dab49ea3ff9cef extends Template
                         </div>
                     </div>
 
-                    <div class=\"col-md-12\">
+                         <div class=\"col-md-12\">
                         <div class=\"form-group\">
                             ";
         // line 91
@@ -218,7 +218,7 @@ class __TwigTemplate_224d598058e2b3e858dab49ea3ff9cef extends Template
         echo "
                             ";
         // line 93
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 93, $this->source); })()), "apropo", [], "any", false, false, false, 93), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "À propos"]]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 93, $this->source); })()), "apropo", [], "any", false, false, false, 93), 'widget', ["attr" => ["class" => "form-control", "placeholder" => "À propos", "id" => "apropoField"]]);
         echo "
                         </div>
                     </div>
@@ -263,35 +263,39 @@ class __TwigTemplate_224d598058e2b3e858dab49ea3ff9cef extends Template
 <!-- Preloader -->
 <div id=\"preloader\"></div>
 
+
+
+</script>
+
 <!-- Vendor JS Files -->
 <script src=\"";
-        // line 126
+        // line 130
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/bootstrap/js/bootstrap.bundle.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 127
+        // line 131
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/php-email-form/validate.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 128
+        // line 132
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/aos/aos.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 129
+        // line 133
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/glightbox/js/glightbox.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 130
+        // line 134
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/purecounter/purecounter_vanilla.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 131
+        // line 135
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/vendor/swiper/swiper-bundle.min.js"), "html", null, true);
         echo "\"></script>
 
 <!-- Main JS File -->
 <script src=\"";
-        // line 134
+        // line 138
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/main.js"), "html", null, true);
         echo "\"></script>
 </body>
@@ -326,7 +330,7 @@ class __TwigTemplate_224d598058e2b3e858dab49ea3ff9cef extends Template
      */
     public function getDebugInfo()
     {
-        return array (  295 => 134,  289 => 131,  285 => 130,  281 => 129,  277 => 128,  273 => 127,  269 => 126,  250 => 110,  238 => 101,  234 => 100,  230 => 99,  221 => 93,  217 => 92,  213 => 91,  204 => 85,  200 => 84,  196 => 83,  187 => 77,  183 => 76,  179 => 75,  172 => 71,  147 => 49,  129 => 34,  104 => 11,  95 => 8,  92 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  299 => 138,  293 => 135,  289 => 134,  285 => 133,  281 => 132,  277 => 131,  273 => 130,  250 => 110,  238 => 101,  234 => 100,  230 => 99,  221 => 93,  217 => 92,  213 => 91,  204 => 85,  200 => 84,  196 => 83,  187 => 77,  183 => 76,  179 => 75,  172 => 71,  147 => 49,  129 => 34,  104 => 11,  95 => 8,  92 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -419,11 +423,11 @@ class __TwigTemplate_224d598058e2b3e858dab49ea3ff9cef extends Template
                         </div>
                     </div>
 
-                    <div class=\"col-md-12\">
+                         <div class=\"col-md-12\">
                         <div class=\"form-group\">
                             {{ form_label(form.apropo, \"À propos\") }}
                             {{ form_errors(form.apropo) }}
-                            {{ form_widget(form.apropo, {'attr': {'class': 'form-control', 'placeholder': 'À propos'}}) }}
+                            {{ form_widget(form.apropo, {'attr': {'class': 'form-control', 'placeholder': 'À propos', 'id': 'apropoField'}}) }}
                         </div>
                     </div>
 
@@ -454,6 +458,10 @@ class __TwigTemplate_224d598058e2b3e858dab49ea3ff9cef extends Template
 
 <!-- Preloader -->
 <div id=\"preloader\"></div>
+
+
+
+</script>
 
 <!-- Vendor JS Files -->
 <script src=\"{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}\"></script>

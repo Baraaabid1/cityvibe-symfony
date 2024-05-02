@@ -19,7 +19,7 @@
                 <div class="chat-user-panel">
                   <div class="pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll" id="reclamationsContainer">
                     {% for lr in ListReclamations %}
-                     {% if lr.idr == Reclamation.idr %}
+                     {% if lr.idr == Rec.idr %}
                      <div class="chat-item active d-flex pl-3 pr-0 pt-3 pb-3">
                       <div class="w-100">
                         <div class="d-flex pl-0">
@@ -31,7 +31,7 @@
                                 <div class="svg15 double-check"></div>
                               </span>
                              <span class="message-shortcut margin-auto fw-400 fs-13 ml-1 mr-4">
-                            <a href="{{ path('app_mainAdmin_reponse', {'id': lr.idR}) }}">{{ lr.titrer }}</a>
+                            <a href="{{ path('app_ajout_reponser', {'id': lr.idR}) }}">{{ lr.titrer }}</a>
                         </span>                            </div>
                           </div>
                         </div>
@@ -73,9 +73,9 @@
                       <img class="rounded-circle shadow avatar-sm mr-3 chat-profile-picture" src="https://user-images.githubusercontent.com/35243461/168796877-f6c8819a-5d6e-4b2a-bd56-04963639239b.jpg">
                       <div class="mr-3">
                         <a href="!#">
-                          <p class="fw-400 mb-0 text-dark-75">{{ Reclamation.titrer }}</p>
+                          <p class="fw-400 mb-0 text-dark-75">{{ Rec.titrer }}</p>
                         </a>
-                        <p class="sub-caption text-muted text-small mb-0"><i class="la la-clock mr-1"></i>last seen today at 09:15 PM</p>
+                        <p class="sub-caption text-muted text-small mb-0"><i class="la la-clock mr-1"></i></p>
                       </div>
                     </div>
                     <div class="flex-shrink-0 margin-auto">
@@ -111,7 +111,7 @@
                 <div class="d-flex flex-row mb-3 navigation-mobile scrollable-chat-panel chat-panel-scroll">
                   <div class="w-100 p-3">
                                 {% for reclamationResponse in reclamationResponses %}
-            {% if reclamationResponse.idu == Reclamation.idu %}
+            {% if reclamationResponse.idu == Rec.idu %}
               <div class="d-flex flex-row-reverse mb-2">
                     <div class="right-chat-message fs-13 mb-2">
                         <div class="mb-0 mr-3 pr-4">
@@ -215,52 +215,56 @@ $('#messageOptionsModaluser').on('show.bs.modal', function (event) {
 });
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const reclamationsContainer = document.getElementById('reclamationsContainer');
+   document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const reclamationsContainer = document.getElementById('reclamationsContainer');
 
-        searchInput.addEventListener('input', function () {
-            const searchTerm = this.value.trim();
+    searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.trim();
 
-            if (searchTerm !== '') {
-                // Send an AJAX request to the Symfony search endpoint
-                fetch(`/search/reclamations?title=${encodeURIComponent(searchTerm)}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // Clear previous reclamations
-                        reclamationsContainer.innerHTML = '';
+        if (searchTerm !== '') {
+            // Send an AJAX request to the Symfony search endpoint
+            fetch(`/user/search/reclamations?title=${encodeURIComponent(searchTerm)}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear previous reclamations
+                    reclamationsContainer.innerHTML = '';
 
-                        // Display search results
-                        data.forEach(reclamation => {
-                            const reclamationItem = document.createElement('div');
-                            reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
-                            reclamationItem.innerHTML = `
-                                <div class="w-100">
-                                    <div class="d-flex pl-0">
-                                        <img class="rounded-circle shadow avatar-sm mr-3" src="https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg">
-                                        <div>
-                                            <p class="margin-auto fw-400 text-dark-75">Administrateur</p>
-                                            <div class="d-flex flex-row mt-1">
-                                                <span>
-                                                    <div class="svg15 double-check"></div>
-                                                </span>
-                                                <span class="message-shortcut margin-auto text-muted fs-13 ml-1 mr-4">${reclamation.titrer}</span>
-                                            </div>
+                    // Display search results
+                    data.forEach(reclamation => {
+                        const reclamationItem = document.createElement('div');
+                        reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
+                           // Construct the HTML for the reclamation item
+                        reclamationItem.innerHTML = `
+                            <div class="w-100">
+                                <div class="d-flex pl-0">
+                                    <img class="rounded-circle shadow avatar-sm mr-3" src="https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg">
+                                    <div>
+                                        <p class="margin-auto fw-400 text-dark-75">Administrateur</p>
+                                        <div class="d-flex flex-row mt-1">
+                                            <span>
+                                                <div class="svg15 double-check"></div>
+                                            </span>
+                                            <a href="/ajout/reponser/${reclamation.idr}" class="message-shortcut margin-auto text-muted fs-13 ml-1 mr-4">${reclamation.titrer}</a>
                                         </div>
                                     </div>
                                 </div>
-                            `;
-                            reclamationsContainer.appendChild(reclamationItem);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error fetching search results:', error);
+                            </div>
+                        `;
+
+                        // Append the reclamation item to the container
+                        reclamationsContainer.appendChild(reclamationItem);
                     });
-            } else {
-                reclamationsContainer.innerHTML = '';
-            }
-        });
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        } else {
+            reclamationsContainer.innerHTML = '';
+        }
     });
+});
+                   
 </script>
 
 

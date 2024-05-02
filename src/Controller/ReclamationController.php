@@ -21,8 +21,14 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\VarDumper\VarDumper;
 use App\Form\UDReponseType;
 use ConsoleTVs\Profanity\Builder;
-
-
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\Mailer\Transport;
+use Symfony\Component\Mailer\Mailer;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 
 
@@ -32,11 +38,96 @@ use ConsoleTVs\Profanity\Builder;
 class ReclamationController extends AbstractController
 {
 
-  
+
+    #[Route('/testexcel', name: 'test_excel')]
+    public function createExcel(): Response
+    {
+        $customHeaders = ['Titre', 'Type', 'A propo', 'Contenu'];
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $columnIndex = 'A';
+        foreach ($customHeaders as $header) {
+            $sheet->setCellValue($columnIndex++ . '1', $header);
+        }
+        $location = 'C:/Users/baraa/OneDrive/Desktop/exel/reclamations.xlsx';
+        $writer = new Xlsx($spreadsheet);
+        $writer->save($location);
+        return $this->redirectToRoute('app_list_reclamations');   
+     }
+
+    #[Route('/first-line-chart-data-endpoint', name: 'first_line_chart_data')]
+    public function firstLineChartData(ReclamationRepository $reclamationRepository): JsonResponse
+    {
+        $reclamationsData = $reclamationRepository->findReclamationsByDayLast7Days();
+        
+        // Extract days and totals
+        $days = $reclamationsData['days'];
+        $totals = $reclamationsData['totals'];
+        
+        // Return the data and labels as JSON response
+        return $this->json(['data' => $totals, 'labels' => $days]);
+    }
+    
+    #[Route('/bar-chart-data-endpoint', name: 'bar_chart_data')]
+    public function barChartData(ReclamationRepository $reclamationRepository): JsonResponse
+    {
+        $reclamationsByType = $reclamationRepository->getReclamationsCountByType();
+
+        // Extract types and totals
+        $types = array_keys($reclamationsByType);
+        $totals = array_values($reclamationsByType);
+        
+        // Return the type and total as JSON response
+        return $this->json(['labels' => $types, 'data' => $totals]);
+    }
+    
+    #[Route('/second-line-chart-data-endpoint', name: 'second_line_chart_data')]
+    public function secondLineChartData(ReclamationRepository $reclamationRepository): JsonResponse
+    {
+         // Get counts of reclamations by type
+    $reclamationCounts = $reclamationRepository->countReclamationsByApropo();
+    
+    // Initialize data and labels arrays
+    $data = [];
+    $labels = [];
+    
+    // Iterate through reclamation counts
+    foreach ($reclamationCounts as $reclamation) {
+        $labels[] = $reclamation['apropo'];
+        $data[] = $reclamation['count'];
+    }
+    
+    // Return the data and labels as JSON response
+    return $this->json(['data' => $data, 'labels' => $labels]);
+}
+
+
+    #[Route('/testemail', name: 'testemail')]
+    public function testEmailSending(): Response
+    {
+        $recipientEmail = 'baraaabid33@gmail.com';
+
+       
+            // Create the email
+            $email = (new Email())
+                ->from('abidbaraa33@gmail.com')
+                ->to($recipientEmail)
+                ->subject('Test Email')
+                ->text('This is a test email sent from Symfony Mailer.');
+    
+            $transport = Transport::fromDsn('smtp://abidbaraa33@gmail.com:bqrbahgxphjmlgpl@smtp.gmail.com:587');
+            $mailer = new Mailer($transport);
+            $mailer->send($email);
+    
+            return new Response('Test email sent successfully!');
+      
+    }
+
 
     ########################## Reclamation User ##########################
     #[Route('/ajout/reclamation', name: 'app_ajout_reclamation')]
-    public function index(ManagerRegistry $doctrine, Request $request)
+    public function index(ManagerRegistry $doctrine, Request $request,  MailerInterface $mailer)
     {
         $em = $doctrine->getManager();
         $Reclamation = new Reclamation();
@@ -48,7 +139,25 @@ class ReclamationController extends AbstractController
             $em->persist($Reclamation);
             $em->flush();
             $this->addFlash('succès', 'Votre réclamation est enregistrée avec succès !');
+            
 
+            if ($Reclamation->getTyper() === 'Réclamation Urgente') {
+                $recipientEmail = 'baraaabid33@gmail.com';
+
+                $email = (new Email())
+                ->from('abidbaraa33@gmail.com')
+                ->to($recipientEmail)
+                ->subject('Reclamation Urgente deposee')
+                ->text('
+                <p>Nous vous informons qu\'une réclamation urgente a été déposée. Votre attention immédiate est requise.</p>
+                <p>Merci de prendre les mesures nécessaires pour résoudre ce problème dans les plus brefs délais.</p>
+                <p>Cordialement</p>
+            ');
+    
+            $transport = Transport::fromDsn('smtp://abidbaraa33@gmail.com:bqrbahgxphjmlgpl@smtp.gmail.com:587');
+            $mailer = new Mailer($transport);
+            $mailer->send($email);
+            }
             return $this->redirectToRoute('app_ajout_reclamation');
         } else {
             return $this->render('reclamation/index.html.twig', [
@@ -88,6 +197,7 @@ class ReclamationController extends AbstractController
 
         $em->remove($reclamation);
         $em->flush();
+        
 
         return $this->redirectToRoute('app_list_user_reclamations');
     }
@@ -108,7 +218,7 @@ class ReclamationController extends AbstractController
         $form = $this->createForm(AjoutReclamationType::class, $reclamation);
 
         $form->handleRequest($request);
-        $reclamation->setIdu(1);
+        $reclamation->setIdu(2);
         $reclamation->setTemp(new \DateTime());
         $originalApropos = $reclamation->getApropo();
         $originalTyper = $reclamation->getTyper();
@@ -143,6 +253,9 @@ class ReclamationController extends AbstractController
             'reclamations' => $reclamations,
         ]);
     }
+
+
+
     #[Route('/Admin/reclamationsDESC', name: 'app_list_reclamationsDESC')]
     public function listReclamationsDESC(ReclamationRepository $RecRepo): Response
     {
@@ -157,21 +270,34 @@ class ReclamationController extends AbstractController
             'reclamations' => $reclamations,
         ]);
     }
-    #[Route('/admin/reclamationpartype/{type}', name: 'app_list_reclamationspartype')]
-    public function listReclamationspartype($type,ReclamationRepository $RecRepo): Response
-    {
-        $type =  urldecode($type);;
+    #[Route('/filter-reclamations', name: 'filter_reclamations')]
+    public function filterReclamations(Request $request, ReclamationRepository $RecRepo): Response
+    { 
+        $filterType = $request->request->get('filter_type');
+    
+        $reclamations = $this->getDoctrine()
+            ->getRepository(Reclamation::class)
+            ->findBy(['typer' => $filterType]);
 
-        $reclamations = $RecRepo->findAllByType($type);
+        // Serialize reclamations to JSON
+        $reclamationsArray = [];
         foreach ($reclamations as $reclamation) {
-            $reclamation->setTitrer(Builder::blocker($reclamation->getTitrer())->filter());
-            $reclamation->setContenu(Builder::blocker($reclamation->getContenu())->filter());
+            
+            $reclamationsArray[] = [
+                'titrer' => $reclamation->getTitrer(),
+                'temp' => $reclamation->getTemp()->format('Y-m-d H:i:s'),
+                'typer' => $reclamation->getTyper(),
+                'Apropo' => $reclamation->getApropo(),
+                'contenu' => $reclamation->getContenu(),
+                $reclamation->setTitrer(Builder::blocker($reclamation->getTitrer())->filter()),
+            $reclamation->setContenu(Builder::blocker($reclamation->getContenu())->filter())
+                // Add other properties as needed
+            ];
         }
 
-        return $this->render('reclamation/list_reclamations.html.twig', [
-            'reclamations' => $reclamations,
-        ]);
+        return new JsonResponse( $reclamationsArray);
     }
+
 
 
 
@@ -193,6 +319,38 @@ class ReclamationController extends AbstractController
         return $this->redirectToRoute('app_list_reclamations');
     }
 
+    #[Route('/adminstat/reclamations', name: 'recstat')]
+    public function statreclamations(): Response
+    {
+    
+        return $this->render('reclamation/recstat.html.twig');     
+    }
+
+    #[Route('/admin/savereclamation/{id}', name: 'saveReclamation')]
+    public function saveRec(ManagerRegistry $doctrine, $id): Response
+    {
+        $em = $doctrine->getManager();
+
+        $reclamation = $em->getRepository(Reclamation::class)->find($id);
+
+        $location = 'C:/Users/baraa/OneDrive/Desktop/exel/reclamations.xlsx';
+        $spreadsheet = IOFactory::load($location);
+
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $row = $sheet->getHighestRow() + 1;
+        $sheet->setCellValue('A' . $row, $reclamation->getTitrer());
+        $sheet->setCellValue('B' . $row, $reclamation->getTyper());
+        $sheet->setCellValue('C' . $row, $reclamation->getApropo());
+        $sheet->setCellValue('D' . $row, $reclamation->getContenu());
+      
+        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+        $writer->save($location);
+
+    
+        return $this->redirectToRoute('app_list_reclamations');    }
+
+
 
 
 
@@ -211,9 +369,10 @@ class ReclamationController extends AbstractController
         $em->beginTransaction();
         // Your existing code
         $Reponser = new Reponser();
-        $reclamation = $em->getRepository(Reclamation::class)->find($id);
+        $rec = $em->getRepository(Reclamation::class)->find($id);
 
-        $Listreclamations =  $RecRepo->findByUserId($reclamation->getIdu());
+        $Listreclamations =  $RecRepo->findByUserId($rec->getIdu(2));
+        $rec->setTitrer(Builder::blocker($rec->getTitrer())->filter());
 
         $reclamationResponses = $em->getRepository(Reponser::class)->findBy(['idR' => $id]);
         foreach ($Listreclamations as $reclamation) {
@@ -231,8 +390,8 @@ class ReclamationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $Reponser = $form->getData();
             $Reponser->setDateRepr(new \DateTime());
-            $Reponser->setIdu($reclamation->getIdu());
-            $Reponser->setIdR($reclamation);
+            $Reponser->setIdu($rec->getIdu());
+            $Reponser->setIdR($rec);
             $em->persist($Reponser);
             $em->flush();
 
@@ -245,7 +404,7 @@ class ReclamationController extends AbstractController
                 'reclamationResponses' => $reclamationResponses = $em->getRepository(Reponser::class)->findBy(['idR' => $id]),
                 'ListReclamations' => $Listreclamations,
                 'form' => $form->createView(),
-                'Reclamation' => $reclamation,
+                'Rec' => $rec,
 
 
             ]);
@@ -255,23 +414,25 @@ class ReclamationController extends AbstractController
                 'reclamationResponses' => $reclamationResponses,
                 'form' => $form->createView(),
                 'ListReclamations' => $Listreclamations,
-                'Reclamation' => $reclamation,
+                'Rec' => $rec,
 
             ]);
         }}
 
 
-        #[Route('/search/reclamations', name: 'searchconv')]
-        public function searchconv(Request $request , ReclamationRepository $RecRepo): JsonResponse
+        #[Route('/user/search/reclamations', name: 'searchconvuser')]
+        public function searchconvuser(Request $request , ReclamationRepository $RecRepo): JsonResponse
     {
         $searchTerm = $request->query->get('title');
+        $idu = 2;
 
         // Search for reclamations by title
-        $reclamations = $RecRepo->findByTitle($searchTerm);
+        $reclamations = $RecRepo->findByTitleAndIdu($searchTerm, $idu);
     
         // Return the search results as JSON response
         return $this->json($reclamations);
     }
+
 
         
         #[Route('/reponse/delete/{id}', name: 'app_delete_reponse')]
@@ -340,7 +501,10 @@ class ReclamationController extends AbstractController
         $em->beginTransaction();
         // Your existing code
         $Reponser = new Reponser();
-        $reclamation = $em->getRepository(Reclamation::class)->find($id);
+        $rec = $em->getRepository(Reclamation::class)->find($id);
+        $rec->setTitrer(Builder::blocker($rec->getTitrer())->filter());
+
+
 
         $Listreclamations = $em->getRepository(Reclamation::class)->findAllDistinctWithResponses();
 
@@ -362,22 +526,27 @@ class ReclamationController extends AbstractController
             $Reponser = $form->getData();
             $Reponser->setDateRepr(new \DateTime());
             $Reponser->setIdu(1);
-            $Reponser->setIdR($reclamation);
+            $Reponser->setIdR($rec);
             $em->persist($Reponser);
-            $em->flush();
 
             // Commit the transaction if everything is successful
             $em->commit();
             $form = $this->createForm(AjoutReponserType::class);
+            $em->flush();
 
+            $reclamationResponses = $em->getRepository(Reponser::class)->findBy(['idR' => $id]);
 
+            // Optionally, you can loop through the responses to apply any necessary modifications
+            foreach ($reclamationResponses as $reponse) {
+                $reponse->setTextr(Builder::blocker($reponse->getTextr())->filter());
+            }
+            
+            // Render the template with the updated response list
             return $this->render('test.html.twig', [
-                'reclamationResponses' => $reclamationResponses = $em->getRepository(Reponser::class)->findBy(['idR' => $id]),
+                'reclamationResponses' => $reclamationResponses,
                 'ListReclamations' => $Listreclamations,
                 'form' => $form->createView(),
-                'Reclamation' => $reclamation,
-
-
+                'Rec' => $rec,
             ]);
         } else {
             // This is a regular HTTP request
@@ -385,7 +554,7 @@ class ReclamationController extends AbstractController
                 'reclamationResponses' => $reclamationResponses,
                 'form' => $form->createView(),
                 'ListReclamations' => $Listreclamations,
-                'Reclamation' => $reclamation,
+                'Rec' => $rec,
 
             ]);
         }}
@@ -443,4 +612,18 @@ class ReclamationController extends AbstractController
             return $this->redirectToRoute('app_mainAdmin_reponse', ['id' => $idRec]);
         }
     }
+
+
+    
+    #[Route('/search/reclamations', name: 'searchconv')]
+    public function searchconv(Request $request , ReclamationRepository $RecRepo): JsonResponse
+{
+    $searchTerm = $request->query->get('title');
+
+    // Search for reclamations by title
+    $reclamations = $RecRepo->findByTitle($searchTerm);
+
+    // Return the search results as JSON response
+    return $this->json($reclamations);
+}
 }

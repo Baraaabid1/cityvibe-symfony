@@ -90,7 +90,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
         foreach ($context['_seq'] as $context["_key"] => $context["lr"]) {
             // line 22
             echo "                     ";
-            if ((twig_get_attribute($this->env, $this->source, $context["lr"], "idr", [], "any", false, false, false, 22) == twig_get_attribute($this->env, $this->source, (isset($context["Reclamation"]) || array_key_exists("Reclamation", $context) ? $context["Reclamation"] : (function () { throw new RuntimeError('Variable "Reclamation" does not exist.', 22, $this->source); })()), "idr", [], "any", false, false, false, 22))) {
+            if ((twig_get_attribute($this->env, $this->source, $context["lr"], "idr", [], "any", false, false, false, 22) == twig_get_attribute($this->env, $this->source, (isset($context["Rec"]) || array_key_exists("Rec", $context) ? $context["Rec"] : (function () { throw new RuntimeError('Variable "Rec" does not exist.', 22, $this->source); })()), "idr", [], "any", false, false, false, 22))) {
                 // line 23
                 echo "                     <div class=\"chat-item active d-flex pl-3 pr-0 pt-3 pb-3\">
                       <div class=\"w-100\">
@@ -105,7 +105,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                              <span class=\"message-shortcut margin-auto fw-400 fs-13 ml-1 mr-4\">
                             <a href=\"";
                 // line 34
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mainAdmin_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["lr"], "idR", [], "any", false, false, false, 34)]), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_ajout_reponser", ["id" => twig_get_attribute($this->env, $this->source, $context["lr"], "idR", [], "any", false, false, false, 34)]), "html", null, true);
                 echo "\">";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["lr"], "titrer", [], "any", false, false, false, 34), "html", null, true);
                 echo "</a>
@@ -166,10 +166,10 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                         <a href=\"!#\">
                           <p class=\"fw-400 mb-0 text-dark-75\">";
         // line 76
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["Reclamation"]) || array_key_exists("Reclamation", $context) ? $context["Reclamation"] : (function () { throw new RuntimeError('Variable "Reclamation" does not exist.', 76, $this->source); })()), "titrer", [], "any", false, false, false, 76), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["Rec"]) || array_key_exists("Rec", $context) ? $context["Rec"] : (function () { throw new RuntimeError('Variable "Rec" does not exist.', 76, $this->source); })()), "titrer", [], "any", false, false, false, 76), "html", null, true);
         echo "</p>
                         </a>
-                        <p class=\"sub-caption text-muted text-small mb-0\"><i class=\"la la-clock mr-1\"></i>last seen today at 09:15 PM</p>
+                        <p class=\"sub-caption text-muted text-small mb-0\"><i class=\"la la-clock mr-1\"></i></p>
                       </div>
                     </div>
                     <div class=\"flex-shrink-0 margin-auto\">
@@ -211,7 +211,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
         foreach ($context['_seq'] as $context["_key"] => $context["reclamationResponse"]) {
             // line 114
             echo "            ";
-            if ((twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "idu", [], "any", false, false, false, 114) == twig_get_attribute($this->env, $this->source, (isset($context["Reclamation"]) || array_key_exists("Reclamation", $context) ? $context["Reclamation"] : (function () { throw new RuntimeError('Variable "Reclamation" does not exist.', 114, $this->source); })()), "idu", [], "any", false, false, false, 114))) {
+            if ((twig_get_attribute($this->env, $this->source, $context["reclamationResponse"], "idu", [], "any", false, false, false, 114) == twig_get_attribute($this->env, $this->source, (isset($context["Rec"]) || array_key_exists("Rec", $context) ? $context["Rec"] : (function () { throw new RuntimeError('Variable "Rec" does not exist.', 114, $this->source); })()), "idu", [], "any", false, false, false, 114))) {
                 // line 115
                 echo "              <div class=\"d-flex flex-row-reverse mb-2\">
                     <div class=\"right-chat-message fs-13 mb-2\">
@@ -357,59 +357,63 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
 });
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const reclamationsContainer = document.getElementById('reclamationsContainer');
+   document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const reclamationsContainer = document.getElementById('reclamationsContainer');
 
-        searchInput.addEventListener('input', function () {
-            const searchTerm = this.value.trim();
+    searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.trim();
 
-            if (searchTerm !== '') {
-                // Send an AJAX request to the Symfony search endpoint
-                fetch(`/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // Clear previous reclamations
-                        reclamationsContainer.innerHTML = '';
+        if (searchTerm !== '') {
+            // Send an AJAX request to the Symfony search endpoint
+            fetch(`/user/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear previous reclamations
+                    reclamationsContainer.innerHTML = '';
 
-                        // Display search results
-                        data.forEach(reclamation => {
-                            const reclamationItem = document.createElement('div');
-                            reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
-                            reclamationItem.innerHTML = `
-                                <div class=\"w-100\">
-                                    <div class=\"d-flex pl-0\">
-                                        <img class=\"rounded-circle shadow avatar-sm mr-3\" src=\"https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg\">
-                                        <div>
-                                            <p class=\"margin-auto fw-400 text-dark-75\">Administrateur</p>
-                                            <div class=\"d-flex flex-row mt-1\">
-                                                <span>
-                                                    <div class=\"svg15 double-check\"></div>
-                                                </span>
-                                                <span class=\"message-shortcut margin-auto text-muted fs-13 ml-1 mr-4\">\${reclamation.titrer}</span>
-                                            </div>
+                    // Display search results
+                    data.forEach(reclamation => {
+                        const reclamationItem = document.createElement('div');
+                        reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
+                           // Construct the HTML for the reclamation item
+                        reclamationItem.innerHTML = `
+                            <div class=\"w-100\">
+                                <div class=\"d-flex pl-0\">
+                                    <img class=\"rounded-circle shadow avatar-sm mr-3\" src=\"https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg\">
+                                    <div>
+                                        <p class=\"margin-auto fw-400 text-dark-75\">Administrateur</p>
+                                        <div class=\"d-flex flex-row mt-1\">
+                                            <span>
+                                                <div class=\"svg15 double-check\"></div>
+                                            </span>
+                                            <a href=\"/ajout/reponser/\${reclamation.idr}\" class=\"message-shortcut margin-auto text-muted fs-13 ml-1 mr-4\">\${reclamation.titrer}</a>
                                         </div>
                                     </div>
                                 </div>
-                            `;
-                            reclamationsContainer.appendChild(reclamationItem);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error fetching search results:', error);
+                            </div>
+                        `;
+
+                        // Append the reclamation item to the container
+                        reclamationsContainer.appendChild(reclamationItem);
                     });
-            } else {
-                reclamationsContainer.innerHTML = '';
-            }
-        });
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        } else {
+            reclamationsContainer.innerHTML = '';
+        }
     });
+});
+                   
 </script>
 
 
   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>
   <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/js/min/perfect-scrollbar.jquery.min.js\"></script>
   <script src=\"";
-        // line 269
+        // line 273
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/test.js"), "html", null, true);
         echo "\"></script>
 
@@ -443,7 +447,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  413 => 269,  324 => 183,  316 => 178,  311 => 176,  303 => 170,  297 => 169,  289 => 164,  284 => 162,  281 => 161,  267 => 150,  260 => 146,  240 => 131,  232 => 126,  222 => 119,  216 => 115,  213 => 114,  209 => 113,  169 => 76,  155 => 64,  148 => 62,  136 => 55,  120 => 41,  108 => 34,  95 => 23,  92 => 22,  88 => 21,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  417 => 273,  324 => 183,  316 => 178,  311 => 176,  303 => 170,  297 => 169,  289 => 164,  284 => 162,  281 => 161,  267 => 150,  260 => 146,  240 => 131,  232 => 126,  222 => 119,  216 => 115,  213 => 114,  209 => 113,  169 => 76,  155 => 64,  148 => 62,  136 => 55,  120 => 41,  108 => 34,  95 => 23,  92 => 22,  88 => 21,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -469,7 +473,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                 <div class=\"chat-user-panel\">
                   <div class=\"pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll\" id=\"reclamationsContainer\">
                     {% for lr in ListReclamations %}
-                     {% if lr.idr == Reclamation.idr %}
+                     {% if lr.idr == Rec.idr %}
                      <div class=\"chat-item active d-flex pl-3 pr-0 pt-3 pb-3\">
                       <div class=\"w-100\">
                         <div class=\"d-flex pl-0\">
@@ -481,7 +485,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                                 <div class=\"svg15 double-check\"></div>
                               </span>
                              <span class=\"message-shortcut margin-auto fw-400 fs-13 ml-1 mr-4\">
-                            <a href=\"{{ path('app_mainAdmin_reponse', {'id': lr.idR}) }}\">{{ lr.titrer }}</a>
+                            <a href=\"{{ path('app_ajout_reponser', {'id': lr.idR}) }}\">{{ lr.titrer }}</a>
                         </span>                            </div>
                           </div>
                         </div>
@@ -523,9 +527,9 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                       <img class=\"rounded-circle shadow avatar-sm mr-3 chat-profile-picture\" src=\"https://user-images.githubusercontent.com/35243461/168796877-f6c8819a-5d6e-4b2a-bd56-04963639239b.jpg\">
                       <div class=\"mr-3\">
                         <a href=\"!#\">
-                          <p class=\"fw-400 mb-0 text-dark-75\">{{ Reclamation.titrer }}</p>
+                          <p class=\"fw-400 mb-0 text-dark-75\">{{ Rec.titrer }}</p>
                         </a>
-                        <p class=\"sub-caption text-muted text-small mb-0\"><i class=\"la la-clock mr-1\"></i>last seen today at 09:15 PM</p>
+                        <p class=\"sub-caption text-muted text-small mb-0\"><i class=\"la la-clock mr-1\"></i></p>
                       </div>
                     </div>
                     <div class=\"flex-shrink-0 margin-auto\">
@@ -561,7 +565,7 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
                 <div class=\"d-flex flex-row mb-3 navigation-mobile scrollable-chat-panel chat-panel-scroll\">
                   <div class=\"w-100 p-3\">
                                 {% for reclamationResponse in reclamationResponses %}
-            {% if reclamationResponse.idu == Reclamation.idu %}
+            {% if reclamationResponse.idu == Rec.idu %}
               <div class=\"d-flex flex-row-reverse mb-2\">
                     <div class=\"right-chat-message fs-13 mb-2\">
                         <div class=\"mb-0 mr-3 pr-4\">
@@ -665,52 +669,56 @@ class __TwigTemplate_7b254549b1f12b90659ac2dd89c44dc5 extends Template
 });
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const reclamationsContainer = document.getElementById('reclamationsContainer');
+   document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const reclamationsContainer = document.getElementById('reclamationsContainer');
 
-        searchInput.addEventListener('input', function () {
-            const searchTerm = this.value.trim();
+    searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.trim();
 
-            if (searchTerm !== '') {
-                // Send an AJAX request to the Symfony search endpoint
-                fetch(`/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // Clear previous reclamations
-                        reclamationsContainer.innerHTML = '';
+        if (searchTerm !== '') {
+            // Send an AJAX request to the Symfony search endpoint
+            fetch(`/user/search/reclamations?title=\${encodeURIComponent(searchTerm)}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear previous reclamations
+                    reclamationsContainer.innerHTML = '';
 
-                        // Display search results
-                        data.forEach(reclamation => {
-                            const reclamationItem = document.createElement('div');
-                            reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
-                            reclamationItem.innerHTML = `
-                                <div class=\"w-100\">
-                                    <div class=\"d-flex pl-0\">
-                                        <img class=\"rounded-circle shadow avatar-sm mr-3\" src=\"https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg\">
-                                        <div>
-                                            <p class=\"margin-auto fw-400 text-dark-75\">Administrateur</p>
-                                            <div class=\"d-flex flex-row mt-1\">
-                                                <span>
-                                                    <div class=\"svg15 double-check\"></div>
-                                                </span>
-                                                <span class=\"message-shortcut margin-auto text-muted fs-13 ml-1 mr-4\">\${reclamation.titrer}</span>
-                                            </div>
+                    // Display search results
+                    data.forEach(reclamation => {
+                        const reclamationItem = document.createElement('div');
+                        reclamationItem.classList.add('chat-item', 'd-flex', 'pl-3', 'pr-0', 'pt-3', 'pb-3');
+                           // Construct the HTML for the reclamation item
+                        reclamationItem.innerHTML = `
+                            <div class=\"w-100\">
+                                <div class=\"d-flex pl-0\">
+                                    <img class=\"rounded-circle shadow avatar-sm mr-3\" src=\"https://user-images.githubusercontent.com/35243461/168796872-7251e655-cdf0-4031-a253-bf0db09cdf0f.jpg\">
+                                    <div>
+                                        <p class=\"margin-auto fw-400 text-dark-75\">Administrateur</p>
+                                        <div class=\"d-flex flex-row mt-1\">
+                                            <span>
+                                                <div class=\"svg15 double-check\"></div>
+                                            </span>
+                                            <a href=\"/ajout/reponser/\${reclamation.idr}\" class=\"message-shortcut margin-auto text-muted fs-13 ml-1 mr-4\">\${reclamation.titrer}</a>
                                         </div>
                                     </div>
                                 </div>
-                            `;
-                            reclamationsContainer.appendChild(reclamationItem);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error fetching search results:', error);
+                            </div>
+                        `;
+
+                        // Append the reclamation item to the container
+                        reclamationsContainer.appendChild(reclamationItem);
                     });
-            } else {
-                reclamationsContainer.innerHTML = '';
-            }
-        });
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        } else {
+            reclamationsContainer.innerHTML = '';
+        }
     });
+});
+                   
 </script>
 
 

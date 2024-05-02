@@ -10,10 +10,18 @@ return [
     [ // $staticRoutes
         '/' => [[['_route' => 'app_main', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'app_Admin_main', '_controller' => 'App\\Controller\\MainController::indexAdmin'], null, null, null, false, false, null]],
+        '/testexcel' => [[['_route' => 'test_excel', '_controller' => 'App\\Controller\\ReclamationController::createExcel'], null, null, null, false, false, null]],
+        '/first-line-chart-data-endpoint' => [[['_route' => 'first_line_chart_data', '_controller' => 'App\\Controller\\ReclamationController::firstLineChartData'], null, null, null, false, false, null]],
+        '/bar-chart-data-endpoint' => [[['_route' => 'bar_chart_data', '_controller' => 'App\\Controller\\ReclamationController::barChartData'], null, null, null, false, false, null]],
+        '/second-line-chart-data-endpoint' => [[['_route' => 'second_line_chart_data', '_controller' => 'App\\Controller\\ReclamationController::secondLineChartData'], null, null, null, false, false, null]],
+        '/testemail' => [[['_route' => 'testemail', '_controller' => 'App\\Controller\\ReclamationController::testEmailSending'], null, null, null, false, false, null]],
         '/ajout/reclamation' => [[['_route' => 'app_ajout_reclamation', '_controller' => 'App\\Controller\\ReclamationController::index'], null, null, null, false, false, null]],
         '/User/reclamations' => [[['_route' => 'app_list_user_reclamations', '_controller' => 'App\\Controller\\ReclamationController::listUserReclamations'], null, null, null, false, false, null]],
         '/Admin/reclamations' => [[['_route' => 'app_list_reclamations', '_controller' => 'App\\Controller\\ReclamationController::listReclamations'], null, null, null, false, false, null]],
         '/Admin/reclamationsDESC' => [[['_route' => 'app_list_reclamationsDESC', '_controller' => 'App\\Controller\\ReclamationController::listReclamationsDESC'], null, null, null, false, false, null]],
+        '/filter-reclamations' => [[['_route' => 'filter_reclamations', '_controller' => 'App\\Controller\\ReclamationController::filterReclamations'], null, null, null, false, false, null]],
+        '/adminstat/reclamations' => [[['_route' => 'recstat', '_controller' => 'App\\Controller\\ReclamationController::statreclamations'], null, null, null, false, false, null]],
+        '/user/search/reclamations' => [[['_route' => 'searchconvuser', '_controller' => 'App\\Controller\\ReclamationController::searchconvuser'], null, null, null, false, false, null]],
         '/search/reclamations' => [[['_route' => 'searchconv', '_controller' => 'App\\Controller\\ReclamationController::searchconv'], null, null, null, false, false, null]],
         '/_profiler' => [[['_route' => '_profiler_home', '_controller' => 'web_profiler.controller.profiler::homeAction'], null, null, null, true, false, null]],
         '/_profiler/search' => [[['_route' => '_profiler_search', '_controller' => 'web_profiler.controller.profiler::searchAction'], null, null, null, false, false, null]],
@@ -42,22 +50,22 @@ return [
                     .')'
                 .')'
                 .'|/a(?'
-                    .'|dmin/reclamationpartype/([^/]++)(*:272)'
-                    .'|jout/reponser/([^/]++)(*:302)'
+                    .'|dmin/savereclamation/([^/]++)(*:269)'
+                    .'|jout/reponser/([^/]++)(*:299)'
                 .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:342)'
-                    .'|wdt/([^/]++)(*:362)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:339)'
+                    .'|wdt/([^/]++)(*:359)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:408)'
-                            .'|router(*:422)'
+                            .'|search/results(*:405)'
+                            .'|router(*:419)'
                             .'|exception(?'
-                                .'|(*:442)'
-                                .'|\\.css(*:455)'
+                                .'|(*:439)'
+                                .'|\\.css(*:452)'
                             .')'
                         .')'
-                        .'|(*:465)'
+                        .'|(*:462)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -71,15 +79,15 @@ return [
         167 => [[['_route' => 'app_delete_reponseA', '_controller' => 'App\\Controller\\ReclamationController::deleteReponsea'], ['id'], null, null, false, true, null]],
         203 => [[['_route' => 'app_update_response_user', '_controller' => 'App\\Controller\\ReclamationController::updateMessageuser'], ['id'], null, null, false, true, null]],
         225 => [[['_route' => 'pp_update_response', '_controller' => 'App\\Controller\\ReclamationController::updateMessage'], ['id'], null, null, false, true, null]],
-        272 => [[['_route' => 'app_list_reclamationspartype', '_controller' => 'App\\Controller\\ReclamationController::listReclamationspartype'], ['type'], null, null, false, true, null]],
-        302 => [[['_route' => 'app_ajout_reponser', '_controller' => 'App\\Controller\\ReclamationController::indexRepnse'], ['id'], null, null, false, true, null]],
-        342 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        362 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        408 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        422 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        442 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        455 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        465 => [
+        269 => [[['_route' => 'saveReclamation', '_controller' => 'App\\Controller\\ReclamationController::saveRec'], ['id'], null, null, false, true, null]],
+        299 => [[['_route' => 'app_ajout_reponser', '_controller' => 'App\\Controller\\ReclamationController::indexRepnse'], ['id'], null, null, false, true, null]],
+        339 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        359 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        405 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        419 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        439 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        452 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        462 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
