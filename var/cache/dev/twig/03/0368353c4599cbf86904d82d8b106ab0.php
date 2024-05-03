@@ -137,7 +137,7 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
                               <span>
                                 <div class=\"svg15 double-check\"></div>
                               </span>
- <span class=\"message-shortcut margin-auto fw-400 fs-13 ml-1 mr-4\">
+                               <span class=\"message-shortcut margin-auto fw-400 fs-13 ml-1 mr-4\">
                             <a href=\"";
                 // line 56
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mainAdmin_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["lr"], "idR", [], "any", false, false, false, 56)]), "html", null, true);
@@ -511,7 +511,7 @@ class __TwigTemplate_a8077531ae966c848579438b4f53517a extends Template
                               <span>
                                 <div class=\"svg15 double-check\"></div>
                               </span>
- <span class=\"message-shortcut margin-auto fw-400 fs-13 ml-1 mr-4\">
+                               <span class=\"message-shortcut margin-auto fw-400 fs-13 ml-1 mr-4\">
                             <a href=\"{{ path('app_mainAdmin_reponse', {'id': lr.idR}) }}\">{{ lr.titrer }}</a>
                         </span>                             </div>
                           </div>

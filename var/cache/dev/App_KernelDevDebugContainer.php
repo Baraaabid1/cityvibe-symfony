@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerXLRsZdm\App_KernelDevDebugContainer([
     'container.build_hash' => 'XLRsZdm',
-    'container.build_id' => '79748642',
-    'container.build_time' => 1714691357,
+    'container.build_id' => '7dd13921',
+    'container.build_time' => 1714735690,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerXLRsZdm');

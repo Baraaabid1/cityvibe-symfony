@@ -148,10 +148,9 @@ class ReclamationController extends AbstractController
                 ->from('abidbaraa33@gmail.com')
                 ->to($recipientEmail)
                 ->subject('Reclamation Urgente deposee')
-                ->text('
-                <p>Nous vous informons qu\'une réclamation urgente a été déposée. Votre attention immédiate est requise.</p>
-                <p>Merci de prendre les mesures nécessaires pour résoudre ce problème dans les plus brefs délais.</p>
-                <p>Cordialement</p>
+                ->text('Nous vous informons qu\'une réclamation urgente a été déposée. Votre attention immédiate est requise.
+                Merci de prendre les mesures nécessaires pour résoudre ce problème dans les plus brefs délais.
+                Cordialement
             ');
     
             $transport = Transport::fromDsn('smtp://abidbaraa33@gmail.com:bqrbahgxphjmlgpl@smtp.gmail.com:587');

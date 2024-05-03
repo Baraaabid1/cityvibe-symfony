@@ -77,6 +77,15 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
             </div>
             <a class=\"navbar-brand\" href=\"#pablo\">List des Reclamations </a>
           </div>
+           <div class=\"collapse navbar-collapse justify-content-end\" >
+          <a  href=\"";
+        // line 16
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("test_excel");
+        echo "\">
+            <i class=\"now-ui-icons files_paper\"></i>
+        </a>
+        </div>
+
           <div class=\"collapse navbar-collapse justify-content-end\" id=\"navigation\">
             <form>
               <div class=\"input-group no-border\">
@@ -105,7 +114,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
           <div style=\"display: flex; justify-content: space-between;\">
     <div style=\"display: inline-block;\">
         <a class=\"nav-link\" href=\"";
-        // line 42
+        // line 48
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_list_reclamationsDESC");
         echo "\">
             <i class=\"now-ui-icons arrows-1_minimal-up\"></i>
@@ -114,7 +123,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
     
     <div style=\"display: inline-block; margin-left: 10px;\">
         <a class=\"nav-link\" href=\"";
-        // line 48
+        // line 54
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_list_reclamations");
         echo "\">
             <i class=\"now-ui-icons arrows-1_minimal-down\"></i>
@@ -123,7 +132,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
     
     <div style=\"display: inline-block; margin-left: 10px;\">
             <a class=\"nav-link\" href=\"";
-        // line 54
+        // line 60
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("recstat");
         echo "\">
                 <i> consulter statistiques</i>
@@ -184,36 +193,36 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
   </thead>
  <tbody id=\"reclamationsTable\">
     ";
-        // line 112
+        // line 118
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 112, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["reclamations"]) || array_key_exists("reclamations", $context) ? $context["reclamations"] : (function () { throw new RuntimeError('Variable "reclamations" does not exist.', 118, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["reclamation"]) {
-            // line 113
+            // line 119
             echo "        <tr>
             <td>";
-            // line 114
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "titrer", [], "any", false, false, false, 114), "html", null, true);
+            // line 120
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "titrer", [], "any", false, false, false, 120), "html", null, true);
             echo "</td>
             <td>";
-            // line 115
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "temp", [], "any", false, false, false, 115), "Y-m-d H:i:s"), "html", null, true);
+            // line 121
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "temp", [], "any", false, false, false, 121), "Y-m-d H:i:s"), "html", null, true);
             echo "</td>
             <td>";
-            // line 116
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "typer", [], "any", false, false, false, 116), "html", null, true);
+            // line 122
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "typer", [], "any", false, false, false, 122), "html", null, true);
             echo "</td>
             <td>";
-            // line 117
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "Apropo", [], "any", false, false, false, 117), "html", null, true);
+            // line 123
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "Apropo", [], "any", false, false, false, 123), "html", null, true);
             echo "</td>
             <td>";
-            // line 118
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "contenu", [], "any", false, false, false, 118), "html", null, true);
+            // line 124
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["reclamation"], "contenu", [], "any", false, false, false, 124), "html", null, true);
             echo "</td>
             <td style=\"display: flex; justify-content: center;\">
                 <a href=\"";
-            // line 120
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_reclamation_admin", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 120)]), "html", null, true);
+            // line 126
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_delete_reclamation_admin", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 126)]), "html", null, true);
             echo "\">
                                          <i class=\"now-ui-icons ui-1_simple-remove\"></i>
 
@@ -221,8 +230,8 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                     <span style=\"margin: 0 10px;\">|</span> <!-- Spacer -->
 
                 <a href=\"";
-            // line 126
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mainAdmin_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 126)]), "html", null, true);
+            // line 132
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_mainAdmin_reponse", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 132)]), "html", null, true);
             echo "\">
                   <i class=\"now-ui-icons ui-1_send\"> </i>
 
@@ -230,8 +239,8 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
                     <span style=\"margin: 0 10px;\">|</span> <!-- Spacer -->
 
                 <a href=\"";
-            // line 132
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("saveReclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 132)]), "html", null, true);
+            // line 138
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("saveReclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["reclamation"], "idr", [], "any", false, false, false, 138)]), "html", null, true);
             echo "\">
                           <i class=\"now-ui-icons arrows-1_cloud-download-93\"></i>
                 </a>
@@ -243,7 +252,7 @@ class __TwigTemplate_b16eb26b4b67b10ad16f8d3d74ac7a4e extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reclamation'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 139
+        // line 145
         echo "</tbody>
 </table>
 
@@ -401,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     public function getDebugInfo()
     {
-        return array (  247 => 139,  234 => 132,  225 => 126,  216 => 120,  211 => 118,  207 => 117,  203 => 116,  199 => 115,  195 => 114,  192 => 113,  188 => 112,  127 => 54,  118 => 48,  109 => 42,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  256 => 145,  243 => 138,  234 => 132,  225 => 126,  220 => 124,  216 => 123,  212 => 122,  208 => 121,  204 => 120,  201 => 119,  197 => 118,  136 => 60,  127 => 54,  118 => 48,  83 => 16,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -420,6 +429,12 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             <a class=\"navbar-brand\" href=\"#pablo\">List des Reclamations </a>
           </div>
+           <div class=\"collapse navbar-collapse justify-content-end\" >
+          <a  href=\"{{ path('test_excel') }}\">
+            <i class=\"now-ui-icons files_paper\"></i>
+        </a>
+        </div>
+
           <div class=\"collapse navbar-collapse justify-content-end\" id=\"navigation\">
             <form>
               <div class=\"input-group no-border\">

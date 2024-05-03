@@ -63,18 +63,18 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
         ";
         // line 27
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 43
+        // line 45
         echo "    </head>
     <body>
             ";
-        // line 45
+        // line 47
         $this->displayBlock('navbar', $context, $blocks);
-        // line 114
+        // line 116
         echo "
         ";
-        // line 115
+        // line 117
         $this->displayBlock('body', $context, $blocks);
-        // line 116
+        // line 118
         echo "    </body>
 </html>
 ";
@@ -205,6 +205,8 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
         // line 41
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets_admin/demo/demo.js"), "html", null, true);
         echo "\"></script>
+                <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>
+
         ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -214,7 +216,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
 
     }
 
-    // line 45
+    // line 47
     public function block_navbar($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -246,7 +248,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
           </li>
           <li>
             <a  href=\"";
-        // line 66
+        // line 68
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_list_reclamations");
         echo "\">
            
@@ -304,7 +306,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
 
     }
 
-    // line 115
+    // line 117
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -335,7 +337,7 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
      */
     public function getDebugInfo()
     {
-        return array (  308 => 115,  250 => 66,  218 => 45,  206 => 41,  202 => 40,  197 => 38,  192 => 36,  185 => 32,  181 => 31,  177 => 30,  173 => 29,  170 => 28,  160 => 27,  143 => 19,  138 => 17,  133 => 15,  129 => 14,  125 => 13,  119 => 9,  109 => 8,  90 => 5,  78 => 116,  76 => 115,  73 => 114,  71 => 45,  67 => 43,  65 => 27,  62 => 26,  59 => 8,  54 => 5,  48 => 1,);
+        return array (  310 => 117,  252 => 68,  220 => 47,  206 => 41,  202 => 40,  197 => 38,  192 => 36,  185 => 32,  181 => 31,  177 => 30,  173 => 29,  170 => 28,  160 => 27,  143 => 19,  138 => 17,  133 => 15,  129 => 14,  125 => 13,  119 => 9,  109 => 8,  90 => 5,  78 => 118,  76 => 117,  73 => 116,  71 => 47,  67 => 45,  65 => 27,  62 => 26,  59 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -381,6 +383,8 @@ class __TwigTemplate_2a9a498dabd06ab54f1d3f6f6e94e8cb extends Template
                 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
                 <script src=\"{{ asset ('assets_admin/js/now-ui-dashboard.min.js?v=1.5.0\" type=\"text/javascript')}}\"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
                 <script src=\"{{ asset ('assets_admin/demo/demo.js')}}\"></script>
+                <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>
+
         {% endblock %}
     </head>
     <body>
